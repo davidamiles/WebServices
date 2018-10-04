@@ -1,0 +1,235 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{3A8BB1D6-6B8F-48E5-B008-D026D3DA4FB8}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Peek.Repository</RootNamespace>
+    <AssemblyName>Peek.Repository</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework">
+      <HintPath>..\packages\EntityFramework.6.1.1\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer">
+      <HintPath>..\packages\EntityFramework.6.1.1\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Clients\ClientRepo.cs" />
+    <Compile Include="Clients\IClientRepo.cs" />
+    <Compile Include="Entities\Client.cs">
+      <DependentUpon>PeekViewModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\ClientNote.cs">
+      <DependentUpon>PeekViewModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\ClientSubType.cs">
+      <DependentUpon>PeekViewModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\ClientType.cs">
+      <DependentUpon>PeekViewModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\Commission.cs">
+      <DependentUpon>PeekViewModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\Company.cs">
+      <DependentUpon>PeekViewModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\DisbursementRequest.cs">
+      <DependentUpon>PeekViewModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\InsuranceCompany.cs">
+      <DependentUpon>PeekViewModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\Job.cs">
+      <DependentUpon>PeekViewModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\JobExpens.cs">
+      <DependentUpon>PeekViewModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\JobStatu.cs">
+      <DependentUpon>PeekViewModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\JobSubType.cs">
+      <DependentUpon>PeekViewModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\JobTrade.cs">
+      <DependentUpon>PeekViewModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\JobType.cs">
+      <DependentUpon>PeekViewModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\Lead.cs">
+      <DependentUpon>PeekViewModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\LeadSource.cs">
+      <DependentUpon>PeekViewModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\LeadStatusType.cs">
+      <DependentUpon>PeekViewModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\PaymentsDue.cs">
+      <DependentUpon>PeekViewModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\PaymentsReceived.cs">
+      <DependentUpon>PeekViewModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\PeekViewModel.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>PeekViewModel.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\PeekViewModel.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>PeekViewModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\PeekViewModel.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>PeekViewModel.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\PeekViewSystemModel.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>PeekViewSystemModel.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\PeekViewSystemModel.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>PeekViewSystemModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\PeekViewSystemModel.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>PeekViewSystemModel.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\RoofAccessType.cs">
+      <DependentUpon>PeekViewModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\state.cs">
+      <DependentUpon>PeekViewModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\SystemLog.cs">
+      <DependentUpon>PeekViewSystemModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\SystemUser.cs">
+      <DependentUpon>PeekViewModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\TradeBrandType.cs">
+      <DependentUpon>PeekViewModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\TradeColorStyle.cs">
+      <DependentUpon>PeekViewModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\TradeSchedule.cs">
+      <DependentUpon>PeekViewModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\TradeStatusType.cs">
+      <DependentUpon>PeekViewModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\TradeType.cs">
+      <DependentUpon>PeekViewModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\ZIPCode.cs">
+      <DependentUpon>PeekViewModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="IRepo.cs" />
+    <Compile Include="ISystemLogRepo.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RepoFactory.cs" />
+    <Compile Include="SystemLogRepo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Peek.Models\Peek.Models.csproj">
+      <Project>{a2bc1317-ba02-4f7d-bef1-59e044ad5408}</Project>
+      <Name>Peek.Models</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config">
+      <SubType>Designer</SubType>
+    </None>
+    <EntityDeploy Include="Entities\PeekViewModel.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>PeekViewModel.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="Entities\PeekViewModel.edmx.diagram">
+      <DependentUpon>PeekViewModel.edmx</DependentUpon>
+    </None>
+    <EntityDeploy Include="Entities\PeekViewSystemModel.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>PeekViewSystemModel.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="Entities\PeekViewSystemModel.edmx.diagram">
+      <DependentUpon>PeekViewSystemModel.edmx</DependentUpon>
+    </None>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Entities\PeekViewModel.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>PeekViewModel.edmx</DependentUpon>
+      <LastGenOutput>PeekViewModel.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Entities\PeekViewModel.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>PeekViewModel.edmx</DependentUpon>
+      <LastGenOutput>PeekViewModel.cs</LastGenOutput>
+    </Content>
+    <Content Include="Entities\PeekViewSystemModel.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>PeekViewSystemModel.edmx</DependentUpon>
+      <LastGenOutput>PeekViewSystemModel.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Entities\PeekViewSystemModel.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>PeekViewSystemModel.edmx</DependentUpon>
+      <LastGenOutput>PeekViewSystemModel.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
