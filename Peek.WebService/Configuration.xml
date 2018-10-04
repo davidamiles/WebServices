@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Configuration>
+  <MimeTypes>
+    <MimeType fileExtension=".htm" type="text/html" />
+    <MimeType fileExtension=".html" type="text/html" />
+    <MimeType fileExtension=".css" type="text/css" />
+    <MimeType fileExtension=".png" type="image/png" />
+    <MimeType fileExtension=".jpg" type="image/jpg" />
+    <MimeType fileExtension=".js" type="text/javascript" />
+    <MimeType fileExtension=".mp3" type="audio/mpeg" />
+    <MimeType fileExtension=".xsd" type="text/xml" />
+    <MimeType fileExtension=".wsdl" type="text/xml" />
+  </MimeTypes>
+</Configuration>

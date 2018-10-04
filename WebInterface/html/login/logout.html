@@ -1,0 +1,53 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+</head>
+<body onload="init()">
+    <script src="javascript/LoginRestService.js" type="text/javascript"></script>
+    <link href="css/style.css" rel="stylesheet" />
+
+    <script type="text/javascript">
+    var scheme;
+    var host;
+    var rootPath;
+    var loginUrl;
+
+    function init() {
+        scheme = window.location.protocol;
+        host = window.location.host;
+
+        rootPath = new String(window.location.pathname);
+        rootPath = rootPath.substring(0, rootPath.lastIndexOf("/"));
+
+        loginUrl = scheme + "//" + host + "/";
+    }
+
+    </script>
+
+    <div class="header">
+        <div style="position: absolute; top: 50%; left: 50%; width:100px; margin-left: -175px; margin-top: -40px">PeekView Roofing</div>
+    </div>
+
+
+    <div class="login" style="align-content: center">
+
+        <div style="top: 0; left: 50%; margin-top: 10px; margin-left: 120px; font-size:xx-large; font-weight:bolder;">
+            Signed Out
+        </div>
+
+        <div style="position: absolute; top: 50%; left: 50%; width:350px; margin-left: -175px; margin-top:-30px ">
+            You have successfully signed out of PeekView Roofing. To help protect your account, close all browser windows.
+        </div>
+
+        <div style="margin-top: 115px; margin-left: 325px"><a href="/login">Sign In</a></div>
+
+    </div>
+
+
+    <div class="footer">
+
+    </div>
+
+</body>
+</html>
