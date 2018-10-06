@@ -223,6 +223,7 @@
       <DependentUpon>PeekViewSystemModel.edmx</DependentUpon>
       <LastGenOutput>PeekViewSystemModel.cs</LastGenOutput>
     </Content>
+    <Content Include="SqlScripts\PeekViewSystem-Objects.sql" />
     <Content Include="SqlScripts\PeekViewSystem.sql" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
