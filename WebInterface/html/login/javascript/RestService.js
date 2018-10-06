@@ -1,13 +1,17 @@
-﻿function LoginRestService(serverEndPoint) {
+﻿function LoginRestService(serverEndPoint)
+{
     var _rootPath = new String(serverEndPoint);
 
-    this.Login = function Login(username, password, callback) {
-        var loginPath = _rootPath.concat("/Login");
+    this.Login = function Login(username, password, callback)
+    {
+        var loginPath = _rootPath.concat("/html/default.html");
 
         var xmlHttp = new XMLHttpRequest();
 
-        xmlHttp.onreadystatechange = function () {
-            if (xmlHttp.readyState === 4) {
+        xmlHttp.onreadystatechange = function ()
+        {
+            if (xmlHttp.readyState === 4)
+            {
                 callback(xmlHttp.status);
             }
         };

@@ -57,7 +57,9 @@
     <Compile Include="Models\SessionModel.cs" />
     <Compile Include="SessionManager.cs" />
     <Compile Include="WebServices\BaseWebService.cs" />
+    <Compile Include="WebServices\ClientsWebSvc.cs" />
     <Compile Include="WebServices\HtmlContentWebSvc.cs" />
+    <Compile Include="WebServices\IClientsWebSvc.cs" />
     <Compile Include="WebServices\IHtmlContentWebSvc.cs" />
     <Compile Include="Main.cs">
       <SubType>Component</SubType>
