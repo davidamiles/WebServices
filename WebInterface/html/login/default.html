@@ -1,11 +1,30 @@
 ﻿<!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html>
 <head>
+
+    <meta charset="utf-8" />
     <title></title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+
+    <!-- Web Fonts  -->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800|Shadows+Into+Light" rel="stylesheet" type="text/css">
+
+    <!--Vendor CSS-->
+    <link rel="stylesheet" href="vendor/bootstrap/css/bootstrap.css" />
+    <link rel="stylesheet" href="vendor/font-awesome/css/fontawesome-all.min.css" />
+
+    <!-- Theme CSS -->
+    <link rel="stylesheet" href="css/theme.css" />
+
+
+    <!-- Skin CSS -->
+    <link rel="stylesheet" href="css/skins/default.css" />
+
+
 </head>
-<body onload="init()">
+<body onload="init()" style="background: #808080">
     <script src="javascript/LoginRestService.js" type="text/javascript"></script>
-    <link href="css/style.css" rel="stylesheet" />
 
     <script type="text/javascript">
         var scheme;
@@ -13,8 +32,7 @@
         var rootPath;
         var serverEndPointPath;
 
-        function init()
-        {
+        function init() {
             scheme = window.location.protocol;
             host = window.location.host;
 
@@ -27,8 +45,7 @@
         }
 
 
-        function login()
-        {
+        function login() {
             hideErrorText();
 
             var username = document.getElementById("username").value;
@@ -45,29 +62,24 @@
             }
 
             var restSvc = new LoginRestService(serverEndPointPath);
-            restSvc.Login(username, password, function (status)
-            {
-                if (status == 200)
-                {
+            restSvc.Login(username, password, function (status) {
+                if (status == 200) {
                     window.location.assign(scheme + "//" + host + "/html");
                 }
-                else
-                {
+                else {
                     showErrorText("Invalid username or password");
                 }
             });
         }
 
 
-        function showErrorText(message)
-        {
+        function showErrorText(message) {
             var errorDiv = document.getElementById("divLoginError");
             errorDiv.innerHTML = message;
             errorDiv.setAttribute("class", "errorText");
         }
 
-        function hideErrorText()
-        {
+        function hideErrorText() {
             var errorDiv = document.getElementById("divLoginError");
             errorDiv.innerText = "";
             errorDiv.setAttribute("class", "hidden");
@@ -75,30 +87,72 @@
 
     </script>
 
-    <header>
-        <div style="display: inline-block"><img src="images/ADSLogo3.png" /></div>
-        <!--<h2 style="text-align:center; display: inline-block">Provider Service</h2>-->
-    </header>
 
-    <div class="slogan">
-        <h2>PeekView Roofing Co.</h2>
-    </div>
+    <section class="body-sign">
+        <div class="center-sign">
+            <a href="/" class="logo float-left">
+                <img src="img/pvrlogo.png" height="85" alt="Peak View Roofing" />
+            </a>
 
-    <div class="login" style="align-content: center">
+            <div class="panel card-sign">
+                <div class="card-title-sign mt-3 text-right">
+                    <h2 class="title text-uppercase font-weight-bold m-0"><i class="fas fa-user mr-1"></i> Sign In</h2>
+                </div>
+                <div class="card-body">
+                    <form action="index.html" method="post">
+                        <div class="form-group mb-3">
+                            <label>Username</label>
+                            <div class="input-group">
+                                <input name="username" type="text" class="form-control form-control-lg" />
+                                <span class="input-group-append">
+                                    <span class="input-group-text">
+                                        <i class="fas fa-user"></i>
+                                    </span>
+                                </span>
+                            </div>
+                        </div>
 
-        <!--<div style="text-align: left; color: black; font-size: 32px; font-weight: bolder; margin-bottom: 20px; margin-left: 10px">Login</div>-->
+                        <div class="form-group mb-3">
+                            <div class="clearfix">
+                                <label class="float-left">Password</label>
+                                <a href="pages-recover-password.html" class="float-right">Lost Password?</a>
+                            </div>
+                            <div class="input-group">
+                                <input name="pwd" type="password" class="form-control form-control-lg" />
+                                <span class="input-group-append">
+                                    <span class="input-group-text">
+                                        <i class="fas fa-lock"></i>
+                                    </span>
+                                </span>
+                            </div>
+                        </div>
 
-        <input type="text" style="display: block; height: 25px; margin-bottom: 15px; margin-top:30px; margin-right: auto; margin-left: auto; width: 50%" id="username"
-               placeholder="Enter Username" required="required" />
+                        <div class="row">
+                            <div class="col-sm-8">
+                                <div class="checkbox-custom checkbox-default">
+                                    <input id="RememberMe" name="rememberme" type="checkbox" />
+                                    <label for="RememberMe">Remember Me</label>
+                                </div>
+                            </div>
+                            <div class="col-sm-4 text-right">
+                                <button type="submit" class="btn btn-primary mt-2">Sign In</button>
+                            </div>
+                        </div>
+                        <p class="text-center">Don't have an account yet? <a href="pages-signup.html">Sign Up!</a></p>
 
-        <input type="password" style="display: block; height: 25px; margin-bottom: 5px; margin-right: auto; margin-left: auto; width: 50%;" id="password"
-               placeholder="Enter password" required="required" onkeydown="if (event.keyCode == 13) login()" />
+                    </form>
+                </div>
+            </div>
 
-        <button onclick="login()" class="myButton" style="display: block; padding:7px; margin-bottom: 20px; margin-right: auto; margin-left: auto; margin-top: 30px; width: 75%">Enter Site</button>
+            <p class="text-center text-muted mt-3 mb-3">&copy; Copyright 2018. Peak View Roofing. All Rights Reserved.</p>
+        </div>
+    </section>
+    <!-- end: page -->
+    <!-- Theme Base, Components and Settings -->
+    <script src="js/theme.js"></script>
 
-        <div id="divLoginError" class="hidden" style="margin-top: 30px; background-color:#000000"></div>
+    <!-- Theme Custom -->
+    <script src="js/custom.js"></script>
 
-    </div>
-     
 </body>
 </html>

@@ -10,7 +10,7 @@ namespace Peek.Repository
     {
         public void Insert(Models.SystemLogModel item)
         {
-            throw new NotImplementedException();
+            //throw new NotImplementedException();
         }
 
         public void Update(Models.SystemLogModel item)
