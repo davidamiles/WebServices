@@ -1,4 +1,6 @@
-﻿using Peek.WebService.WebServices;
+﻿using Peek.Core.Logging;
+using Peek.Models;
+using Peek.WebService.WebServices;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -37,6 +39,8 @@ namespace Sandbox
 
         private void btnStart_Click(object sender, EventArgs e)
         {
+            Logger.Log("Sandbox Start", LogComponent.WebService.ToString(), Peek.Models.LogSeverity.Debug);
+
             this.baseLoginWebServiceHost = new WebServiceHost(typeof(LoginWebSvc));
             this.baseLoginWebServiceHost.Open();
 
@@ -49,6 +53,8 @@ namespace Sandbox
 
         private void btnStop_Click(object sender, EventArgs e)
         {
+            Logger.Log("Sandbox Stop", LogComponent.WebService.ToString(), LogSeverity.Debug);
+
             this.baseContentWebServiceHost.Close();
             this.baseLoginWebServiceHost.Close();
 

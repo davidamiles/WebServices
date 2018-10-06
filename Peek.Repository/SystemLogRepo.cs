@@ -8,9 +8,25 @@ namespace Peek.Repository
 {
     public class SystemLogRepo : ISystemLogRepo
     {
+        private Entities.PeekViewSystemEntities baseContext = null;
+
+        public SystemLogRepo()
+        {
+            this.baseContext = new Entities.PeekViewSystemEntities();
+        }
+
         public void Insert(Models.SystemLogModel item)
         {
-            //throw new NotImplementedException();
+            this.baseContext.SystemLogs.Add(new Entities.SystemLog()
+            {
+                Timestamp = item.Timestamp,
+                Message = item.Message,
+                Component = item.Component,
+                Severity = item.Severity.ToString(),
+                Stacktrace = item.StackTrace
+            });
+
+            this.baseContext.SaveChanges();
         }
 
         public void Update(Models.SystemLogModel item)

@@ -59,27 +59,10 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="html\login\css\skins\default.css" />
     <Content Include="html\login\css\style.css" />
-    <Content Include="html\login\css\theme.css" />
     <Content Include="html\login\default.html" />
-    <Content Include="html\login\defaultold.html" />
-    <Content Include="html\login\img\pvrlogo.png" />
-    <Content Include="html\login\js\RestService.js" />
-    <Content Include="html\login\js\theme.init.js" />
-    <Content Include="html\login\js\theme.js" />
+    <Content Include="html\login\javascript\RestService.js" />
     <Content Include="html\login\logout.html" />
-    <Content Include="html\login\vendor\bootstrap\css\bootstrap.css" />
-    <Content Include="html\login\vendor\font-awesome\css\fa-brands.css" />
-    <Content Include="html\login\vendor\font-awesome\css\fa-brands.min.css" />
-    <Content Include="html\login\vendor\font-awesome\css\fa-regular.css" />
-    <Content Include="html\login\vendor\font-awesome\css\fa-regular.min.css" />
-    <Content Include="html\login\vendor\font-awesome\css\fa-solid.css" />
-    <Content Include="html\login\vendor\font-awesome\css\fa-solid.min.css" />
-    <Content Include="html\login\vendor\font-awesome\css\fontawesome-all.css" />
-    <Content Include="html\login\vendor\font-awesome\css\fontawesome-all.min.css" />
-    <Content Include="html\login\vendor\font-awesome\css\fontawesome.css" />
-    <Content Include="html\login\vendor\font-awesome\css\fontawesome.min.css" />
     <Content Include="html\www\default.html" />
     <Content Include="Web.config" />
   </ItemGroup>
@@ -87,7 +70,6 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="html\login\vendor\bootstrap\css\bootstrap.css.map" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -95,7 +77,9 @@
       <DependentUpon>Web.config</DependentUpon>
     </None>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="html\login\images\" />
+  </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
