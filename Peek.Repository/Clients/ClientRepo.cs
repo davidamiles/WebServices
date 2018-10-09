@@ -38,7 +38,21 @@ namespace Peek.Repository.Clients
 
         public IEnumerable<ClientModel> Select(int skip, int take)
         {
-            IEnumerable<Entities.Client> entities = this.baseContext.Clients.OrderBy(client => client.FirstName).Skip(skip).Take(take);
+            IEnumerable<Entities.Client> entities = this.baseContext.Clients.OrderByDescending(client => client.Id).Skip(skip).Take(take);
+
+            return (entities.Count() > 0) ? this.GetModelsFromEntities(entities) : null;
+        }
+
+        public IEnumerable<ClientModel> SelectAscending(int skip, int take)
+        {
+            IEnumerable<Entities.Client> entities = this.baseContext.Clients.OrderBy(client => client.FullName).Skip(skip).Take(take);
+
+            return (entities.Count() > 0) ? this.GetModelsFromEntities(entities) : null;
+        }
+
+        public IEnumerable<ClientModel> SelectDescending(int skip, int take)
+        {
+            IEnumerable<Entities.Client> entities = this.baseContext.Clients.OrderByDescending(client => client.FullName).Skip(skip).Take(take);
 
             return (entities.Count() > 0) ? this.GetModelsFromEntities(entities) : null;
         }
@@ -77,7 +91,6 @@ namespace Peek.Repository.Clients
 
             return clients;
         }
-
-       
+               
     }
 }

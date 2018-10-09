@@ -9,6 +9,7 @@ namespace Peek.Repository.Clients
 {
     public interface IClientRepo : IRepo<ClientModel>
     {
-
+        IEnumerable<ClientModel> SelectAscending(int skip, int take);
+        IEnumerable<ClientModel> SelectDescending(int skip, int take);
     }
 }

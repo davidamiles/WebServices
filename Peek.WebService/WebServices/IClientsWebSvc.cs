@@ -14,8 +14,8 @@ namespace Peek.WebService.WebServices
     public interface IClientsWebSvc
     {
         [OperationContract]
-        [WebGet(UriTemplate = "")]
-        IEnumerable<ClientModel> SelectClients();        
+        [WebGet(UriTemplate = "desc/id/?skip={skip}&take={take}")]
+        IEnumerable<ClientModel> SelectClients(string skip, string take);        
         
     }
 }
