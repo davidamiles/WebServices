@@ -1,0 +1,78 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+</head>
+<body onload="onLoad()">
+        
+    <script src="javascript/Constants.js" type="text/javascript"></script>
+    <script src="javascript/ui-datagrid-1.2.js" type="text/javascript"></script>
+    <script src="javascript/RestClient.js" type="text/javascript"></script>
+
+    <link href="css/datagrid.css" rel="stylesheet" />
+
+    <script type="text/javascript">
+
+        var constants = new Constants();
+        constants.Init();
+
+        var clientsGrid = new DataGrid(false, false, false, true);
+
+        function onLoad()
+        {
+            var columns = [];
+            columns.push(new DataGridColumn("FirstName", "FirstName", true, false));
+            columns.push(new DataGridColumn("LastName", "LastName", true, false));
+
+            clientsGrid.Init(document.getElementById("myDataGrid"), columns, "myDataGrid");
+
+            document.documentElement.addEventListener(DataGrid.EVENT_TYPE_PAGE_CHANGED, pageChanged);
+            document.documentElement.addEventListener(DataGrid.EVENT_TYPE_PAGE_COUNT_CHANGED, pageCountChanged);
+            document.documentElement.addEventListener(DataGrid.EVENT_TYPE_ROW_SELECTED, rowSelected);
+            document.documentElement.addEventListener(DataGrid.EVENT_TYPE_ROW_DELETED, rowDeleted);
+
+            getClients();
+        }
+
+        function getClients()
+        {
+            var restClient = new RestClient(constants.ClientsWebSvcPath);            
+            
+            restClient.SelectClients(0, 10, function (restCallbackObj)
+            {
+                var a = restCallbackObj.ResponseJSON;
+
+                clientsGrid.AddRecords(a);
+                clientsGrid.SetSelectedRow(0);
+            });
+        }
+
+        function pageChanged(e) {
+            var pageNumber = e.detail.DataGrid.GetPageNumber();
+        }
+
+        function pageCountChanged(e) {
+
+        }
+
+        function rowSelected(e) {
+            var record = e.detail.SelectedRecord;
+            var row = e.detail.SelectedRow;
+            var name = e.detail.DataGrid.GetGridName();
+        }
+
+        function rowDeleted(e) {
+            var record = e.detail.SelectedRecord;
+            var row = e.detail.SelectedRow;
+            var isMultiDelete = e.detail.IsMultiDelete;
+        }
+
+    </script>
+
+    <div id="myDataGrid">
+
+    </div>
+
+</body>
+</html>

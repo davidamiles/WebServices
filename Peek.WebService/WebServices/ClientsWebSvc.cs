@@ -23,7 +23,7 @@ namespace Peek.WebService.WebServices
             try
             {
                 IClientRepo repo = Repository.RepoFactory.GetClientRepo();
-                models = repo.Select(0, 10);
+                models = repo.Select(int.Parse(skip), int.Parse(take));
             }
             catch (Exception ex)
             {

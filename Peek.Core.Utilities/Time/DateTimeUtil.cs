@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Peek.Core.Time
+namespace Peek.Core.Utilities.Time
 {
     public class DateTimeUtil
     {

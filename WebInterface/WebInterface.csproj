@@ -61,10 +61,16 @@
   <ItemGroup>
     <Content Include="html\login\css\style.css" />
     <Content Include="html\login\default.html" />
-    <Content Include="html\login\javascript\RestService.js" />
+    <Content Include="html\login\javascript\RestClient.js" />
     <Content Include="html\login\logout.html" />
+    <Content Include="html\www\Clients.html" />
+    <Content Include="html\www\css\datagrid.css" />
+    <Content Include="html\www\css\loading.css" />
+    <Content Include="html\www\css\menu.css" />
     <Content Include="html\www\default.html" />
+    <Content Include="html\www\javascript\Constants.js" />
     <Content Include="html\www\javascript\RestClient.js" />
+    <Content Include="html\www\javascript\ui-datagrid-1.2.js" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -80,7 +86,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="html\login\images\" />
-    <Folder Include="html\www\css\" />
     <Folder Include="html\www\images\" />
   </ItemGroup>
   <PropertyGroup>

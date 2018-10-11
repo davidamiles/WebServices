@@ -1,0 +1,55 @@
+﻿.MenuContainer {
+    border: 1px solid black;
+    z-index: 1000;
+}
+
+.MenuItem {
+    position: relative;
+    display: inline-block;
+    z-index: 1000;
+}
+
+    .MenuItem:hover .MenuContent {
+        display: block;
+    }
+
+.MenuItemButton {
+    border: 1px solid #e5f0ff;
+    display: inline;
+    color: black;
+    font-family: sans-serif;
+    font-size: 12px;
+    background-color: white;
+    padding-bottom: 5px;
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-top: 5px;
+}
+
+    .MenuItemButton:hover {
+        background-color: whitesmoke;
+        color: black;
+        cursor: pointer;
+    }
+
+.MenuContent {
+    background-color: white;
+    position: absolute;
+    display: none;
+    min-width: 160px;
+    box-shadow: 0px, 8px, 16px, 0px, rgba(0,0,0,0.2);
+}
+
+    .MenuContent a {
+        color: black;
+        padding: 12px 16px;
+        display: block;
+        text-decoration: none;
+        font-family: sans-serif;
+        font-size: 12px;
+    }
+
+        .MenuContent a:hover {
+            background-color: whitesmoke;
+            cursor: pointer;
+        }

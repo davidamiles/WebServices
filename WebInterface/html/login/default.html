@@ -4,7 +4,7 @@
     <title></title>
 </head>
 <body onload="init()">
-    <script src="javascript/RestService.js" type="text/javascript"></script>
+    <script src="javascript/RestClient.js" type="text/javascript"></script>
     <link href="css/style.css" rel="stylesheet" />
 
     <script type="text/javascript">
@@ -44,8 +44,8 @@
                 return;
             }
 
-            var restSvc = new LoginRestService(serverEndPointPath);
-            restSvc.Login(username, password, function (status)
+            var restClient = new RestClient(serverEndPointPath);
+            restClient.Login(username, password, function (status)
             {
                 if (status == 200)
                 {

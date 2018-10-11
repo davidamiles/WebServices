@@ -42,11 +42,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Json\JsonSerializer.cs" />
     <Compile Include="Logging\DbTraceListener.cs" />
     <Compile Include="Logging\Logger.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Time\DateTimeUtil.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Smtp\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Peek.Models\Peek.Models.csproj">
@@ -57,9 +58,6 @@
       <Project>{3a8bb1d6-6b8f-48e5-b008-d026d3da4fb8}</Project>
       <Name>Peek.Repository</Name>
     </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Smtp\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

@@ -2,8 +2,20 @@
 {
     var _rootPath = new String(rootPath);
 
-    this.GetUsername = function GetUsername(callback) {
+    this.SelectClients = function SelectClients(skip, take, callback)
+    {
+        var url = _rootPath.concat("/desc/id?skip=" + skip + "&take=" + take);
+        sendGetRequest(url, callback);
+    }
+
+    this.GetUsername = function GetUsername(callback)
+    {
         var url = _rootPath.concat("/username");
+        sendGetRequest(url, callback);
+    }
+
+    this.GetHtml = function GetHtml(url, callback)
+    {
         sendGetRequest(url, callback);
     }
 

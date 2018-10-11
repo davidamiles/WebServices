@@ -10,7 +10,7 @@ using System.ServiceModel;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Peek.Core.Json
+namespace Peek.Core.Utilities.Json
 {
     /// <summary>
     /// JSON Utilities

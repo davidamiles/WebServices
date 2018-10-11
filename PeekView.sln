@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 2013
-VisualStudioVersion = 12.0.31101.0
+# Visual Studio 15
+VisualStudioVersion = 15.0.28010.2041
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Peek.Repository", "Peek.Repository\Peek.Repository.csproj", "{3A8BB1D6-6B8F-48E5-B008-D026D3DA4FB8}"
 EndProject
@@ -16,6 +16,10 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Peek.Core", "Peek.Core\Peek.Core.csproj", "{D81F99F5-7C6F-480C-AC27-F928DE6D8B91}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Peek.RepositoryUnitTest", "Peek.RepositoryUnitTest\Peek.RepositoryUnitTest.csproj", "{F64ABD2E-D3C7-4F58-8CCA-1C9091A81EF2}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Peek.WebServiceUnitTest", "Peek.WebServiceUnitTest\Peek.WebServiceUnitTest.csproj", "{F3810C58-6943-433D-A772-05AA3AAF2177}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Peek.Core.Utilities", "Peek.Core.Utilities\Peek.Core.Utilities.csproj", "{2151513F-205B-4AC2-AD49-8572046E2AC4}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -51,8 +55,19 @@ Global
 		{F64ABD2E-D3C7-4F58-8CCA-1C9091A81EF2}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F64ABD2E-D3C7-4F58-8CCA-1C9091A81EF2}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F64ABD2E-D3C7-4F58-8CCA-1C9091A81EF2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F3810C58-6943-433D-A772-05AA3AAF2177}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F3810C58-6943-433D-A772-05AA3AAF2177}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F3810C58-6943-433D-A772-05AA3AAF2177}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F3810C58-6943-433D-A772-05AA3AAF2177}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2151513F-205B-4AC2-AD49-8572046E2AC4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2151513F-205B-4AC2-AD49-8572046E2AC4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2151513F-205B-4AC2-AD49-8572046E2AC4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2151513F-205B-4AC2-AD49-8572046E2AC4}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {C37D3FB0-C4EB-4709-A7EE-139480539B9B}
 	EndGlobalSection
 EndGlobal
