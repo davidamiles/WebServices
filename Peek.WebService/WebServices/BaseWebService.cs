@@ -32,13 +32,13 @@ namespace Peek.WebService.WebServices
                 this.basePath = this.basePath.Substring(0, this.basePath.IndexOf("\\Sandbox"));
                 this.basePath = Path.Combine(this.basePath, "WebInterface", contentPath);
 #endif
+
+                if (!Directory.Exists(basePath))
+                {
+                    throw new DirectoryNotFoundException(this.basePath);
+                }
             }
 
-
-            if (!Directory.Exists(basePath))
-            {
-                throw new DirectoryNotFoundException(this.basePath);
-            }
             if (string.IsNullOrEmpty(name))
             {
                 throw new ArgumentNullException("name");

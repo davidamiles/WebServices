@@ -1,4 +1,4 @@
-﻿function LoginRestService(serverEndPoint)
+﻿function RestClient(serverEndPoint)
 {
     var _rootPath = new String(serverEndPoint);
 

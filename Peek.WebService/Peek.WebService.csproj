@@ -71,7 +71,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="MimeTypeHelper.cs" />
     <Compile Include="WebServices\ILoginWebSvc.cs" />
+    <Compile Include="WebServices\ISystemWebSvc.cs" />
     <Compile Include="WebServices\LoginWebSvc.cs" />
+    <Compile Include="WebServices\SystemWebSvc.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

@@ -3,25 +3,35 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Runtime.Serialization;
 using System.ServiceModel;
+using System.ServiceModel.Web;
 using System.Text;
 using Peek.Models.Clients;
+using Peek.Repository.Clients;
 
 namespace Peek.WebService.WebServices
-{
-    // NOTE: You can use the "Rename" command on the "Refactor" menu to change the class name "Clients" in both code and config file together.
-    public class ClientsWebSvc : IClientsWebSvc
+{    
+    internal sealed class ClientsWebSvc : BaseWebService, IClientsWebSvc
     {
-        public IEnumerable<ClientModel> SelectClients()
+        public ClientsWebSvc() : base("ClientsWebSvc", null, false)
+        {
+        }
+
+        public IEnumerable<ClientModel> SelectClients(string skip, string take)
         {
             IEnumerable<ClientModel> models = null;
 
             try
             {
-
+                IClientRepo repo = Repository.RepoFactory.GetClientRepo();
+                models = repo.Select(int.Parse(skip), int.Parse(take));
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
+                OutgoingWebResponseContext response = WebOperationContext.Current.OutgoingResponse;
+                response.StatusCode = System.Net.HttpStatusCode.InternalServerError;
+                response.StatusDescription = "Internal Server Error";
 
+                base.LogMessage(ex.Message, Peek.Models.LogSeverity.Error, ex.StackTrace);
             }
 
             return models;
