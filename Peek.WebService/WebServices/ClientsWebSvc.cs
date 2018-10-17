@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Runtime.Serialization;
 using System.ServiceModel;
@@ -16,6 +17,57 @@ namespace Peek.WebService.WebServices
         {
         }
 
+        public void Delete(string clientId)
+        {
+            try
+            {
+                IClientRepo repo = Repository.RepoFactory.GetClientRepo();
+            }
+            catch (FormatException ex)
+            {
+                OutgoingWebResponseContext response = WebOperationContext.Current.OutgoingResponse;
+                response.StatusCode = System.Net.HttpStatusCode.BadRequest;
+                response.StatusDescription = "Bad Request";
+
+                base.LogMessage(ex.Message, Peek.Models.LogSeverity.Error, ex.StackTrace);
+
+            }
+            catch (Exception ex)
+            {
+                OutgoingWebResponseContext response = WebOperationContext.Current.OutgoingResponse;
+                response.StatusCode = System.Net.HttpStatusCode.InternalServerError;
+                response.StatusDescription = "Internal Server Error";
+
+                base.LogMessage(ex.Message, Peek.Models.LogSeverity.Error, ex.StackTrace);
+            }
+        }
+
+        public void Insert(Stream stream)
+        {
+            try
+            {
+                byte[] data = BaseWebService.GetBufferFromStream(stream);
+                IClientRepo repo = Repository.RepoFactory.GetClientRepo();
+            }
+            catch (FormatException ex)
+            {
+                OutgoingWebResponseContext response = WebOperationContext.Current.OutgoingResponse;
+                response.StatusCode = System.Net.HttpStatusCode.BadRequest;
+                response.StatusDescription = "Bad Request";
+
+                base.LogMessage(ex.Message, Peek.Models.LogSeverity.Error, ex.StackTrace);
+
+            }
+            catch (Exception ex)
+            {
+                OutgoingWebResponseContext response = WebOperationContext.Current.OutgoingResponse;
+                response.StatusCode = System.Net.HttpStatusCode.InternalServerError;
+                response.StatusDescription = "Internal Server Error";
+
+                base.LogMessage(ex.Message, Peek.Models.LogSeverity.Error, ex.StackTrace);
+            }
+        }
+
         public IEnumerable<ClientModel> SelectClients(string skip, string take)
         {
             IEnumerable<ClientModel> models = null;
@@ -24,6 +76,14 @@ namespace Peek.WebService.WebServices
             {
                 IClientRepo repo = Repository.RepoFactory.GetClientRepo();
                 models = repo.Select(int.Parse(skip), int.Parse(take));
+            }
+            catch(FormatException ex)
+            {
+                OutgoingWebResponseContext response = WebOperationContext.Current.OutgoingResponse;
+                response.StatusCode = System.Net.HttpStatusCode.BadRequest;
+                response.StatusDescription = "Bad Request";
+
+                base.LogMessage(ex.Message, Peek.Models.LogSeverity.Error, ex.StackTrace);
             }
             catch (Exception ex)
             {
@@ -35,6 +95,34 @@ namespace Peek.WebService.WebServices
             }
 
             return models;
+        }
+
+        public void Update(Stream stream)
+        {
+            try
+            {
+                byte[] data = BaseWebService.GetBufferFromStream(stream);
+
+                IClientRepo repo = Repository.RepoFactory.GetClientRepo();
+
+            }
+            catch (FormatException ex)
+            {
+                OutgoingWebResponseContext response = WebOperationContext.Current.OutgoingResponse;
+                response.StatusCode = System.Net.HttpStatusCode.BadRequest;
+                response.StatusDescription = "Bad Request";
+
+                base.LogMessage(ex.Message, Peek.Models.LogSeverity.Error, ex.StackTrace);
+
+            }
+            catch (Exception ex)
+            {
+                OutgoingWebResponseContext response = WebOperationContext.Current.OutgoingResponse;
+                response.StatusCode = System.Net.HttpStatusCode.InternalServerError;
+                response.StatusDescription = "Internal Server Error";
+
+                base.LogMessage(ex.Message, Peek.Models.LogSeverity.Error, ex.StackTrace);
+            }
         }
     }
 }

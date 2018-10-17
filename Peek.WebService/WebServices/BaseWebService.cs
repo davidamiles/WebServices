@@ -78,16 +78,6 @@ namespace Peek.WebService.WebServices
             }
         }
 
-        protected void LogMessage(string message, LogSeverity severity)
-        {
-            Logger.Log(this.baseServiceName + ": " + message, LogComponent.WebService.ToString(), severity);
-        }
-
-        protected void LogMessage(string message, LogSeverity severity, string stacktrace)
-        {
-            Logger.Log(this.baseServiceName + ": " + message, LogComponent.WebService.ToString(), severity, stacktrace);
-        }
-
         protected string GetUsername()
         {
             if (this.baseUsername == null)
@@ -105,6 +95,16 @@ namespace Peek.WebService.WebServices
             }
 
             return baseUsername;
+        }
+
+        protected void LogMessage(string message, LogSeverity severity)
+        {
+            Logger.Log(this.baseServiceName + ": " + message, LogComponent.WebService.ToString(), severity);
+        }
+
+        protected void LogMessage(string message, LogSeverity severity, string stacktrace)
+        {
+            Logger.Log(this.baseServiceName + ": " + message, LogComponent.WebService.ToString(), severity, stacktrace);
         }
 
         //protected SessionModel CheckSessionId(string sessionId)

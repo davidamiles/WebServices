@@ -34,7 +34,11 @@
 
         var clientsGrid = new DataGrid(false, false, false, true);
 
-        function onLoad() {
+        var _clients = [];
+
+
+        function onLoad()
+        {
             //var columns = [];
             //columns.push(new DataGridColumn("FirstName", "FirstName", true, false));
             //columns.push(new DataGridColumn("LastName", "LastName", true, false));
@@ -60,6 +64,7 @@
                 //clientsGrid.AddRecords(a);
                 //clientsGrid.SetSelectedRow(0);
 
+                _clients = restCallbackObj.ResponseJSON;
                 bind(restCallbackObj.ResponseJSON);
             });
         }
@@ -136,27 +141,85 @@
         }
 
 
-        function pageChanged(e) {
+        function pageChanged(e)
+        {
             var pageNumber = e.detail.DataGrid.GetPageNumber();
         }
 
-        function pageCountChanged(e) {
+        function pageCountChanged(e)
+        {
 
         }
 
-        function rowSelected(e) {
+        function rowSelected(e)
+        {
             var record = e.detail.SelectedRecord;
             var row = e.detail.SelectedRow;
             var name = e.detail.DataGrid.GetGridName();
         }
 
-        function rowDeleted(e) {
+        function rowDeleted(e)
+        {
             var record = e.detail.SelectedRecord;
             var row = e.detail.SelectedRow;
             var isMultiDelete = e.detail.IsMultiDelete;
         }
 
+        function sendPost()
+        {
+            var restClient = new RestClient(constants.ClientsWebSvcPath);
+            restClient.InsertClient(_clients[0], function (restCallbackObj)
+            {
+                if (restCallbackObj.StatusCode == 200)
+                {
+
+                }
+                else
+                {
+
+                }
+            });
+        }
+
+        function sendPut()
+        {
+            var restClient = new RestClient(constants.ClientsWebSvcPath);
+            restClient.UpdateClient(_clients[0], function (restCallbackObj)
+            {
+                if (restCallbackObj.StatusCode == 200)
+                {
+
+                }
+                else
+                {
+
+                }
+            });
+        }
+
+        function sendDelete()
+        {
+            var restClient = new RestClient(constants.ClientsWebSvcPath);
+            restClient.DeleteClient(_clients[0].Id, function (restCallbackObj)
+            {
+                if (restCallbackObj.StatusCode == 200)
+                {
+
+                }
+                else
+                {
+
+                }
+            });
+
+        }
+
     </script>
+
+    <div onclick="sendPost()">POST</div>
+    <div onclick="sendDelete()">DELETE</div>
+    <div onclick="sendPut()">PUT</div>
+    
 
     <table id="grid"></table>
 

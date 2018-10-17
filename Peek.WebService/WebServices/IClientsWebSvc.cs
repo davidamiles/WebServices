@@ -5,6 +5,8 @@ using System.Runtime.Serialization;
 using System.ServiceModel;
 using System.ServiceModel.Web;
 using System.Text;
+using System.IO;
+
 using Peek.Models.Clients;
 
 namespace Peek.WebService.WebServices
@@ -15,7 +17,19 @@ namespace Peek.WebService.WebServices
     {
         [OperationContract]
         [WebGet(UriTemplate = "desc/id/?skip={skip}&take={take}")]
-        IEnumerable<ClientModel> SelectClients(string skip, string take);        
+        IEnumerable<ClientModel> SelectClients(string skip, string take);
+
+        [OperationContract]
+        [WebInvoke(Method = "POST", UriTemplate = "")]
+        void Insert(Stream stream);
+
+        [OperationContract]
+        [WebInvoke(Method = "PUT", UriTemplate = "")]
+        void Update(Stream stream);
+
+        [OperationContract]
+        [WebInvoke(Method = "DELETE", UriTemplate = "{clientId}")]
+        void Delete(string clientId);
         
     }
 }
