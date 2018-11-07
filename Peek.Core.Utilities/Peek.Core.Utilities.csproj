@@ -53,6 +53,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Entity\EntityUtil.cs" />
     <Compile Include="Json\JsonSerializer.cs" />
     <Compile Include="Time\DateTimeUtil.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

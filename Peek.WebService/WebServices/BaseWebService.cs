@@ -11,6 +11,7 @@ using System.ServiceModel.Channels;
 using System.ServiceModel.Web;
 using System.Text;
 using System.Threading.Tasks;
+using System.Data.Entity.Validation;
 
 namespace Peek.WebService.WebServices
 {
@@ -153,6 +154,23 @@ namespace Peek.WebService.WebServices
             }
 
             return id;
+        }
+
+        protected string GetErrorMessageFromEntityValidationException(DbEntityValidationException ex)
+        {
+            string message = "";
+
+            foreach (DbEntityValidationResult result in ex.EntityValidationErrors)
+            {
+                foreach (DbValidationError error in result.ValidationErrors)
+                {
+
+
+                }
+            }
+
+
+            return message;
         }
 
         protected Stream GetErrorResponseStream(int errorCode, string message)

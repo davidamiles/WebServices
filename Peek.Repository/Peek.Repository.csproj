@@ -169,6 +169,8 @@
     </Compile>
     <Compile Include="IRepo.cs" />
     <Compile Include="ISystemLogRepo.cs" />
+    <Compile Include="Jobs\IJobsRepo.cs" />
+    <Compile Include="Jobs\JobsRepo.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RepoFactory.cs" />
     <Compile Include="SystemLogRepo.cs" />
@@ -227,7 +229,6 @@
     <Content Include="SqlScripts\PeekViewSystem.sql" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Jobs\" />
     <Folder Include="Tasks\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

@@ -1,4 +1,5 @@
 ﻿using Peek.Repository.Clients;
+using Peek.Repository.Jobs;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,6 +13,11 @@ namespace Peek.Repository
         public static IClientRepo GetClientRepo()
         {
             return new ClientRepo();
+        }
+
+        public static IJobsRepo GetJobsRepo()
+        {
+            return new JobsRepo();
         }
 
         public static ISystemLogRepo GetSystemLogRepo()
