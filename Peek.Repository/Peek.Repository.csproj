@@ -171,6 +171,8 @@
     <Compile Include="ISystemLogRepo.cs" />
     <Compile Include="Jobs\IJobsRepo.cs" />
     <Compile Include="Jobs\JobsRepo.cs" />
+    <Compile Include="Leads\ILeadsRepo.cs" />
+    <Compile Include="Leads\LeadsRepo.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RepoFactory.cs" />
     <Compile Include="SystemLogRepo.cs" />
