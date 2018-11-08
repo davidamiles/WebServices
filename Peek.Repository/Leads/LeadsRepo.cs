@@ -45,7 +45,7 @@ namespace Peek.Repository.Leads
 
         public IEnumerable<LeadModel> Select(int skip, int take)
         {
-            IEnumerable<Entities.Lead> entities = this.baseContext.Leads.OrderByDescending(l => l.Id);
+            IEnumerable<Entities.Lead> entities = this.baseContext.Leads.OrderByDescending(l => l.Id).Skip(skip).Take(take);
 
             return (entities.Count() > 0) ? this.GetModelsFromEntities(entities) : null;
         }
@@ -66,9 +66,36 @@ namespace Peek.Repository.Leads
         {
             List<LeadModel> models = new List<LeadModel>();
 
+            foreach(Entities.Lead entity in entities)
+            {
+                LeadModel model = new LeadModel();
 
+                model.Id = entity.Id;
+                model.Active = entity.Active;
+                model.AppointmentDate = entity.AppointmentDate;
+                model.AssignedTo = entity.AssignedTo;
+                model.City = entity.City;
+                model.ClientId = entity.ClientID;
+                model.CoClient = entity.CoClient;
+                model.CreateDate = entity.CreateDate;
+                model.CustomerName = entity.CustomerName;
+                model.Email = entity.Email;                
+                model.JobCreationDate = entity.JobCreationDate;
+                model.LastActivity = entity.LastActivity;
+                model.LeadCreator = entity.LeadCreator;
+                model.LeadSource = entity.LeadSource;
+                model.LeadStatus = entity.LeadStatus;
+                model.LeadSubSource = entity.LeadSubSource;
+                model.LeadSubType = entity.LeadSubType;
+                model.LeadType = entity.LeadType;
+                model.Notes = entity.Notes;
+                model.PhoneNum = entity.PhoneNum;
+                model.ShipToAddress = entity.ShipToAddress;
+                model.Username = entity.Username;
+                model.Zipcode = entity.Zipcode;
 
-
+                models.Add(model);
+            }
 
             return models;
         }

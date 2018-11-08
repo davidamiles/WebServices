@@ -25,13 +25,13 @@ namespace Peek.Models.Leads
         public string LeadSource { get; set; }
         public string LeadSubSource { get; set; }
         public string LeadCreator { get; set; }
-        public DateTime AppointmentDate { get; set; }
+        public DateTime? AppointmentDate { get; set; }
         public string Notes { get; set; }
-        public int ClientId { get; set; }
-        public DateTime CreateDate { get; set; }
-        public DateTime LastActivity { get; set; }
-        public DateTime JobCreationDate { get; set; }
-        public bool Active { get; set; }
+        public int? ClientId { get; set; }
+        public DateTime? CreateDate { get; set; }
+        public DateTime? LastActivity { get; set; }
+        public DateTime? JobCreationDate { get; set; }
+        public bool? Active { get; set; }
         public string Username { get; set; }
         public string CoClient { get; set; }
         public string LeadSubType { get; set; }
