@@ -19,8 +19,9 @@ namespace Sandbox
     {
         private WebServiceHost baseLoginWebServiceHost = null; 
         private WebServiceHost baseContentWebServiceHost = null;
-        private WebServiceHost baseClientsWebServiceHost = null;
-        private WebServiceHost baseServiceWebServiceHost = null;
+        private WebServiceHost baseClientsWebServiceHost = null;        
+        private WebServiceHost baseLeadsWebServiceHost = null;
+        private WebServiceHost baseJobsWebServiceHost = null;
 
         private string basePath = null;        
 
@@ -49,6 +50,12 @@ namespace Sandbox
 
             this.baseClientsWebServiceHost = new WebServiceHost(typeof(ClientsWebSvc));
             this.baseClientsWebServiceHost.Open();
+
+            this.baseLeadsWebServiceHost = new WebServiceHost(typeof(LeadsWebSvc));
+            this.baseLeadsWebServiceHost.Open();
+
+            this.baseJobsWebServiceHost = new WebServiceHost(typeof(JobsWebSvc));
+            this.baseJobsWebServiceHost.Open();
             
             this.btnStart.Enabled = false;
             this.btnStop.Enabled = true;            
@@ -61,6 +68,8 @@ namespace Sandbox
             this.baseContentWebServiceHost.Close();
             this.baseLoginWebServiceHost.Close();
             this.baseClientsWebServiceHost.Close();
+            this.baseLeadsWebServiceHost.Close();
+            this.baseJobsWebServiceHost.Close();
 
             this.btnStop.Enabled = false;
             this.btnStart.Enabled = true;
