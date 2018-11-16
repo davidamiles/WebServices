@@ -11,6 +11,7 @@ using System.ServiceModel.Channels;
 using System.ServiceModel.Web;
 using System.Text;
 using System.Threading.Tasks;
+using System.Data.Entity.Validation;
 
 namespace Peek.WebService.WebServices
 {
@@ -78,16 +79,6 @@ namespace Peek.WebService.WebServices
             }
         }
 
-        protected void LogMessage(string message, LogSeverity severity)
-        {
-            Logger.Log(this.baseServiceName + ": " + message, LogComponent.WebService.ToString(), severity);
-        }
-
-        protected void LogMessage(string message, LogSeverity severity, string stacktrace)
-        {
-            Logger.Log(this.baseServiceName + ": " + message, LogComponent.WebService.ToString(), severity, stacktrace);
-        }
-
         protected string GetUsername()
         {
             if (this.baseUsername == null)
@@ -105,6 +96,16 @@ namespace Peek.WebService.WebServices
             }
 
             return baseUsername;
+        }
+
+        protected void LogMessage(string message, LogSeverity severity)
+        {
+            Logger.Log(this.baseServiceName + ": " + message, LogComponent.WebService.ToString(), severity);
+        }
+
+        protected void LogMessage(string message, LogSeverity severity, string stacktrace)
+        {
+            Logger.Log(this.baseServiceName + ": " + message, LogComponent.WebService.ToString(), severity, stacktrace);
         }
 
         //protected SessionModel CheckSessionId(string sessionId)
@@ -153,6 +154,23 @@ namespace Peek.WebService.WebServices
             }
 
             return id;
+        }
+
+        protected string GetErrorMessageFromEntityValidationException(DbEntityValidationException ex)
+        {
+            string message = "";
+
+            foreach (DbEntityValidationResult result in ex.EntityValidationErrors)
+            {
+                foreach (DbValidationError error in result.ValidationErrors)
+                {
+
+
+                }
+            }
+
+
+            return message;
         }
 
         protected Stream GetErrorResponseStream(int errorCode, string message)

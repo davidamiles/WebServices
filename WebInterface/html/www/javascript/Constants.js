@@ -13,6 +13,8 @@
         var host = window.location.host;
 
         _this.ClientsWebSvcPath = scheme + "//" + host + "/Clients";
-        _this.SystemWebSvcPath = scheme + "//" + host + "/System"
+        _this.JobsWebSvcPath = scheme + "//" + host + "/Jobs";
+        _this.LeadsWebSvcPath = scheme + "//" + host + "/Leads";
+        _this.SystemWebSvcPath = scheme + "//" + host + "/System";
     }
 }
