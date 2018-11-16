@@ -75,7 +75,10 @@ namespace Peek.Models.Leads
         [DataMember(Name = "JobCreationDate")]
         public string JobCreationDateString
         {
-            get => DateTimeUtil.GetISODateTimeString(JobCreationDate);
+            get
+            {
+                return (JobCreationDate != null) ? DateTimeUtil.GetISODateTimeString((DateTime)JobCreationDate) : null;                
+            }
 
             set
             {

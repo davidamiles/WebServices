@@ -2,6 +2,7 @@
 {
     var _rootPath = new String(rootPath);
 
+
     this.SelectClients = function SelectClients(skip, take, callback)
     {
         var url = _rootPath.concat("/desc/id?skip=" + skip + "&take=" + take);
@@ -25,6 +26,66 @@
         var url = _rootPath.concat("/" + clientId);
         send(url, "DELETE", callback);
     }
+
+
+
+
+
+    this.SelectJobs = function SelectJobs(skip, take, callback)
+    {
+        var url = _rootPath.concat("/desc/id?skip=" + skip + "&take=" + take);
+        send(url, "GET", callback);
+    }
+
+    this.UpdateJob = function UpdateJob(client, callback)
+    {
+        var url = _rootPath;
+        send(url, "PUT", JSON.stringify(client), callback);
+    }
+
+    this.InsertJob = function InsertJob(client, callback)
+    {
+        var url = _rootPath;
+        send(url, "POST", JSON.stringify(client), callback);
+    }
+
+    this.DeleteJob = function DeleteJob(clientId, callback)
+    {
+        var url = _rootPath.concat("/" + clientId);
+        send(url, "DELETE", callback);
+    }
+
+
+
+
+    this.SelectLeads = function SelectLeads(skip, take, callback)
+    {
+        var url = _rootPath.concat("/desc/id?skip=" + skip + "&take=" + take);
+        send(url, "GET", callback);
+    }
+
+    this.UpdateLead = function UpdateLead(client, callback)
+    {
+        var url = _rootPath;
+        send(url, "PUT", JSON.stringify(client), callback);
+    }
+
+    this.InsertLead = function InsertLead(client, callback)
+    {
+        var url = _rootPath;
+        send(url, "POST", JSON.stringify(client), callback);
+    }
+
+    this.DeleteLead = function DeleteLead(clientId, callback)
+    {
+        var url = _rootPath.concat("/" + clientId);
+        send(url, "DELETE", callback);
+    }
+
+
+
+
+
 
     this.GetUsername = function GetUsername(callback)
     {
