@@ -95,6 +95,7 @@
 
     this.GetHtml = function GetHtml(url, callback)
     {
+        url = _rootPath.concat(url);
         send(url, "GET", callback);
     }
 
