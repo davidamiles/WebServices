@@ -1,7 +1,6 @@
 ﻿body
 {
-    background-color: black;
-    background: black;
+    background-color: whitesmoke;
     /*background-image: url('/images/doAHAI6.jpg');*/
 }
 
@@ -42,7 +41,7 @@ header
 	/*-moz-border-radius:10px;
 	-webkit-border-radius:10px;*/
 	border-radius:10px;
-	border:1px solid #ffffff;
+	border:1px solid #000000;
 	display:inline-block;
 	cursor:pointer;
 	color:#000000;
@@ -55,12 +54,11 @@ header
 
 
 
-.login
-{
-    width: 400px;
-    height: 200px;
+.login {
+    width: 450px;
+    height: 500px;
     position: absolute;
-    border: 1px solid white;
+    border: 1px solid black;
     -moz-border-radius: 10px;
     -webkit-border-radius: 10px;
     border-radius: 10px;
@@ -68,12 +66,12 @@ header
     border-bottom-right-radius: 0px;
     -webkit-border-bottom-left-radius: 0px;
     border-bottom-left-radius: 0px;*/
-    background-color: #A1A0CB;
+    background-color: #f2f2f2;
     top: 50%;
     left: 50%;
     z-index: 101;
     margin-left: -200px;
-    margin-top: -90px;
+    margin-top: -300px;
 }
 
 .hidden
