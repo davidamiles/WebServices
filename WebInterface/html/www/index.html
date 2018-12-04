@@ -1,0 +1,558 @@
+﻿<!DOCTYPE html>
+<html class="fixed sidebar-left-collapsed">
+<head>
+
+    <!-- This is the main landing page after login-->
+    <title>Peak View Roofing</title>
+    <meta charset="utf-8" />
+
+    <!-- Mobile Metas -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+
+    <!-- Web Fonts  -->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800|Shadows+Into+Light" rel="stylesheet" type="text/css">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+    <!-- Vendor CSS -->
+    <link rel="stylesheet" href="vendor/bootstrap/css/bootstrap.css" />
+    <link rel="stylesheet" href="vendor/animate/animate.css">
+
+    <link rel="stylesheet" href="vendor/font-awesome/css/fontawesome-all.min.css" />
+    <link rel="stylesheet" href="vendor/magnific-popup/magnific-popup.css" />
+    <link rel="stylesheet" href="vendor/bootstrap-datepicker/css/bootstrap-datepicker3.css" />
+
+    <!-- Specific Page Vendor CSS -->
+    <link rel="stylesheet" href="vendor/jquery-ui/jquery-ui.css" />
+    <link rel="stylesheet" href="vendor/jquery-ui/jquery-ui.theme.css" />
+    <link rel="stylesheet" href="vendor/bootstrap-multiselect/bootstrap-multiselect.css" />
+    <link rel="stylesheet" href="vendor/morris/morris.css" />
+
+    <!-- Theme CSS -->
+    <link rel="stylesheet" href="css/theme.css" />
+
+    <!-- Skin CSS -->
+    <link rel="stylesheet" href="css/skins/default.css" />
+
+    <!-- Theme Custom -->
+    <link rel="stylesheet" href="css/custom.css" />
+
+    <!-- Head Libs -->
+    <script src="vendor/modernizr/modernizr.js"></script>
+    <script src="vendor/liquid-meter/liquid.meter.js"></script>
+
+    <!-- Custom JS -->
+    <script src="javascript/Constants.js" type="text/javascript"></script>
+    <script src="javascript/ui-datagrid-1.2.js" type="text/javascript"></script>
+    <script src="javascript/RestClient.js" type="text/javascript"></script>
+
+    <!-- Load Main Dashboard into default view -->
+    <script>
+        $(document).ready(function () {
+
+            $('#divContainer').load("parts/mainDash.html");
+
+        });
+    </script>
+
+</head>
+
+<body>
+    <section class="body">
+
+        <!--start header -- use as an example of design concept-->
+        <header class="header">
+            <div class="logo-container">
+                <a href="../2.1.1" class="logo">
+                    <img src="images/pvrlogo.png" width="125" height="45" alt="PVR" />
+                </a>
+                <div class="d-md-none toogle-sidebar-left" data-toggle-class="sidebar-left-opened" data-target="html" data-fire-event="sidebar-left-opened">
+                    <i class="fas fa-bars" aria-label="Toggle sidebar"></i>
+                </div>
+            </div>
+
+            <!-- start search box and user box-->
+            <div class="header-right">
+                <form action="#" class="search nav-form">
+                    <div class="input-group">
+                        <input type="text" class="form-control" name="q" id="q" placeholder="Search..." />
+                        <span class="input-group-append">
+                            <button class="btn btn-default" type="submit"><i class="fas fa-search"></i></button>
+                        </span>
+                    </div>
+                </form>
+
+                <!-- User Notifications set up-->
+
+                <span class="separator"></span>
+
+                <ul class="notifications">
+                    <li>
+                        <a href="#" class="dropdown-toggle notification-icon" data-toggle="dropdown">
+                            <i class="fas fa-tasks"></i>
+                            <span class="badge">3</span>
+                        </a>
+
+                        <div class="dropdown-menu notification-menu large">
+                            <div class="notification-title">
+                                <span class="float-right badge badge-default">3</span>
+                                Tasks
+                            </div>
+
+                            <div class="content">
+                                <ul>
+                                    <li>
+                                        <p class="clearfix mb-1">
+                                            <span class="message-float-left">Generating Sales Report</span>
+                                            <span class="message-float-right text-dark">60%</span>
+                                        </p>
+                                        <div class="progress progress-xs light">
+                                            <div class="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%;"></div>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <p class="clearfix mb-1">
+                                            <span class="message float-left">Another notification</span>
+                                            <span class="message float-right text-dark">98%</span>
+                                        </p>
+                                        <div class="progress progress-xs light">
+                                            <div class="progress-bar" role="progressbar" aria-valuenow="98" aria-valuemax="100" style="width: 98%;"></div>
+                                        </div>
+                                    </li>
+
+                                    <li>
+                                        <p class="clearfix mb-1">
+                                            <span class="message float-left">Uploading something big</span>
+                                            <span class="message float-right text-dark">33%</span>
+                                        </p>
+                                        <div class="progress progress-xs light mb-1">
+                                            <div class="progress-bar" role="progressbar" aria-valuenow="33" aria-valuemin="0" aria-valuemax="100" style="width: 33%;"></div>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </li>
+
+                    <li>
+                        <!--<a href="#" class="dropdown-toggle notification-icon" data-toggle="dropdown">
+                                <i class="fas fa-envelope"></i>
+                                <span class="badge">4</span>
+                            </a>
+                            <div class="dropdown-menu notification-menu">
+                                <div class="notification-title">
+                                    <span class="float-right badge badge-default">230</span>
+                                    Messages
+                                </div>
+
+                                <div class="content">
+                                    <ul>
+                                        <li>
+                                            <a href="#" class="clearfix">
+                                                <figure class="image">
+                                                    <img src="img/!sample-user.jpg" alt="Joseph Doe Junior" class="rounded-circle" />
+                                                </figure>
+                                                <span class="title">Joseph Doe</span>
+                                                <span class="message">Lorem ipsum dolor sit.</span>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#" class="clearfix">
+                                                <figure class="image">
+                                                    <img src="img/!sample-user.jpg" alt="Joseph Junior" class="rounded-circle" />
+                                                </figure>
+                                                <span class="title">Joseph Junior</span>
+                                                <span class="message truncate">Truncated message. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec sit amet lacinia orci. Proin vestibulum eget risus non luctus. Nunc cursus lacinia lacinia. Nulla molestie malesuada est ac tincidunt. Quisque eget convallis diam, nec venenatis risus. Vestibulum blandit faucibus est et malesuada. Sed interdum cursus dui nec venenatis. Pellentesque non nisi lobortis, rutrum eros ut, convallis nisi. Sed tellus turpis, dignissim sit amet tristique quis, pretium id est. Sed aliquam diam diam, sit amet faucibus tellus ultricies eu. Aliquam lacinia nibh a metus bibendum, eu commodo eros commodo. Sed commodo molestie elit, a molestie lacus porttitor id. Donec facilisis varius sapien, ac fringilla velit porttitor et. Nam tincidunt gravida dui, sed pharetra odio pharetra nec. Duis consectetur venenatis pharetra. Vestibulum egestas nisi quis elementum elementum.</span>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#" class="clearfix">
+                                                <figure class="image">
+                                                    <img src="img/!sample-user.jpg" alt="Joe Junior" class="rounded-circle" />
+                                                </figure>
+                                                <span class="title">Joe Junior</span>
+                                                <span class="message">Lorem ipsum dolor sit.</span>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#" class="clearfix">
+                                                <figure class="image">
+                                                    <img src="img/!sample-user.jpg" alt="Joseph Junior" class="rounded-circle" />
+                                                </figure>
+                                                <span class="title">Joseph Junior</span>
+                                                <span class="message">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec sit amet lacinia orci. Proin vestibulum eget risus non luctus. Nunc cursus lacinia lacinia. Nulla molestie malesuada est ac tincidunt. Quisque eget convallis diam.</span>
+                                            </a>
+                                        </li>
+                                    </ul>
+
+                                    <hr />
+
+                                    <div class="text-right">
+                                        <a href="#" class="view-more">View All</a>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </li>-->
+                    <li>
+                        <a href="#" class="dropdown-toggle notification-icon" data-toggle="dropdown">
+                            <i class="fas fa-bell"></i>
+                            <span class="badge">3</span>
+                        </a>
+                        <div class="dropdown-menu notification-menu">
+                            <div class="notification-title">
+                                <span class="float-right badge badge-default">3</span>
+                                Alerts
+                            </div>
+
+                            <div class="content">
+                                <ul>
+                                    <li>
+                                        <a href="#" class="clearfix">
+                                            <div class="image">
+                                                <i class="fas fa-thumbs-down bg-danger text-light"></i>
+                                            </div>
+                                            <span class="title">Server is Down!</span>
+                                            <span class="message">Just now</span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#" class="clearfix">
+                                            <div class="image">
+                                                <i class="fas fa-lock bg-warning text-light"></i>
+                                            </div>
+                                            <span class="title">User Locked</span>
+                                            <span class="message">15 minutes ago</span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#" class="clearfix">
+                                            <div class="image">
+                                                <i class="fas fa-signal bg-success text-light"></i>
+                                            </div>
+                                            <span class="title">Connection Restaured</span>
+                                            <span class="message">10/10/2017</span>
+                                        </a>
+                                    </li>
+                                </ul>
+
+                                <hr />
+
+                                <div class="text-right">
+                                    <a href="#" class="view-more">View All</a>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+
+                <span class="separator"></span>
+
+                <div id="userbox" class="userbox">
+                    <a href="#" data-toggle="dropdown">
+                        <figure class="profile-picture">
+                            <img src="img/!logged-user.jpg" alt="Tasia Miles" class="rounded-circle" data-lock-picture="img/!logged-user.jpg" />
+                        </figure>
+                        <div class="profile-info" data-lock-name="Tasia Miles" data-lock-email="tasiamiles@peakviewroofing.com">
+                            <span class="name">Tasia N Miles</span>
+                            <span class="role">Administrator</span>
+                        </div>
+
+                        <i class="fa custom-caret"></i>
+                    </a>
+
+                    <div class="dropdown-menu">
+                        <ul class="list-unstyled mb-2">
+                            <li class="divider"></li>
+                            <li>
+                                <a role="menuitem" tabindex="-1" href="pages-user-profile.html"><i class="fas fa-user"></i> My Profile</a>
+                            </li>
+                            <li>
+                                <a role="menuitem" tabindex="-1" href="lockscreen.html" data-lock-screen="true"><i class="fas fa-lock"></i> Lock Screen</a>
+                            </li>
+                            <li>
+                                <a role="menuitem" tabindex="-1" href="pages-signin.html"><i class="fas fa-power-off"></i> Logout</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!--end user box-->
+            </div>
+
+        </header>
+        <!--End Header-->
+
+        <div class="inner-wrapper">
+            <!--start sidebar navigation-->
+            <aside id="sidebar-left" class="sidebar-left">
+
+                <div class="sidebar-header">
+                    <div class="sidebar-title">
+                        Navigation
+                    </div>
+
+                    <div class="sidebar-toggle d-none d-md-block" data-toggle-class="sidebar-left-collapsed" data-target="html" data-fire-event="sidebar-left-toggle">
+                        <i class="fas fa-bars" aria-label="Toggle sidebar"></i>
+                    </div>
+                </div>
+
+                <div class="nano">
+                    <div class="nano-content">
+                        <nav id="menu" class="nav-main" role="navigation">
+
+                            <ul class="nav nav-main">
+                                <li class="nav-active">
+                                    <a class="nav-link" href="index.html">
+                                        <i class="fas fa-home" aria-hidden="true"></i>
+                                        <span>Home</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a class="nav-link" href="#" onclick="loadPartSales()">
+                                       
+                                        <i class="fas fa-tachometer-alt" aria-hidden="true"></i>
+                                        <span>Sales Dashboard</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a class="nav-link" href="#" onclick="loadPartInv()">
+                                        <i class="fas fa-tachometer-alt" aria-hidden="true"></i>
+                                        <span>Inventory Dashboard</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a class="nav-link" href="#" onclick="loadPartProd()">
+                                        <i class="fas fa-tachometer-alt" aria-hidden="true"></i>
+                                        <span>Production Dashboard</span>
+                                    </a>
+                                </li>
+
+                                <li class="header-nav-menu">
+                                    <a class="nav-main">
+                                        <i class="fas fa-users" aria-hidden="true"></i>
+                                        <span>Contacts Menu</span>
+                                    </a>
+                                
+                                </li>
+                                <li>
+                                    <a class="nav-link" href="#" onclick="loadPartAllContacts()">
+                                        <span>All Contacts</span>
+                                    </a>
+                                </li>
+
+                                <li>
+                                    <a class="nav-link" href="#" onclick="loadPartNewContacts()">
+                                        <span>Add New Contact</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a class="nav-link" href="#" onclick="loadPartAllLeads()">
+                                        <span>All Leads</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a class="nav-link" href="#" onclick="loadPartNewLeads()">
+                                        <span>Add New Lead</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a class="nav-link" href="#" onclick="loadPartAllVendors()">
+                                        <span>All Vendors</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a class="nav-link" href="#" onclick="loadPartNewVendor()">
+                                        <span>Add New Vendor</span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </nav>
+                    </div>
+                </div>
+            </aside>
+            <!--End Sidebar-->
+            <!--Main Content section-->
+            <section role="main" class="content-body">
+                <header class="page-header">
+                    <h2>PVR Home</h2>
+                    <div class="right-wrapper text-right">
+                        <ol class="breadcrumbs">
+                            <li>
+                                <a href="index.html">
+                                    <i class="fas fa-home"></i>
+                                </a>
+                            </li>
+                            <li><span>home</span></li>
+                        </ol>
+
+                        <a class="sidebar-right-toggle" data-ng-open="sidebar-right"><i class="fas fa-chevron-left"></i></a>
+                    </div>
+                </header>
+
+                <!--Start Page -- this will become the main div where 'parts' of the app will be loaded-->
+                <div id="divContainer" class="row">
+
+                    <div class="col-md-6">
+
+                        <h2>Landing Page after Login</h2>
+
+                        <p class="mb-lg">Some overview of daily items for BI Dashboard</p>
+
+
+
+                        <div class="row">
+
+                            <div class="col-md-12">
+
+                                <section class="panel">
+
+                                    <header class="panel-heading"></header>
+
+
+
+
+                                </section>
+
+                            </div>
+
+                        </div>
+
+                    </div>  <!--End div "divcontainer"-->
+                </div>
+            </section>
+
+            <!-- JS to load parts into divContainer when selected from Sidebar Menu-->
+            
+            <script type="text/javascript">
+
+              //Load Sales Dashboard
+                function loadPartSales() {
+                    $(document).ready(function () {
+                        $('#divContainer').load("parts/SalesDash.html");
+                    });
+                }
+
+                //Load Inventory Dashboard
+                function loadPartInv() {
+                    $(document).ready(function () {
+                        $('#divContainer').load("parts/InvDash.html");
+                    });
+                }
+
+                //Load Production 'job' Dashboard
+                function loadPartProd() {
+                    $(document).ready(function () {
+                        $('#divContainer').load("parts/ProdDash.html");
+                    });
+                    }
+
+                //Load All Contacts Gridview
+                function loadPartAllContacts() {
+                    $(document).ready(function () {
+                        $('#divContainer').load("parts/AllContacts.html");
+                    });
+                }
+
+                //Load New Contacts Form
+                function loadPartNewContacts() {
+                    $(document).ready(function () {
+                        $('#divContainer').load("parts/NewContact.html");
+                    });
+                }
+
+                //Load All Leads Gridview
+                function loadPartAllLeads() {
+                    $(document).ready(function () {
+                        $('#divContainer').load("parts/AllLeads.html");
+                    });
+                }
+
+                //Load New Leads Form
+                function loadPartNewLeads() {
+                    $(document).ready(function () {
+                        $('#divContainer').load("parts/NewLeads.html");
+                    });
+                }
+
+                //Load All Vendors Gridview
+                function loadPartAllVendors() {
+                    $(document).ready(function () {
+                        $('#divContainer').ready("parts/AllVendors.html");
+                    });
+                }
+
+                //Load New Vendor Form
+                function loadPartNewVendor() {
+                    $(document).ready(function () {
+                        $('#divContainer').ready("parts/NewVendor.html");
+                    });
+                }
+
+         
+
+
+            </script>
+
+
+            <!--Vendor-->
+
+            <script src="vendor/jquery/jquery.js"></script>
+            <script src="vendor/jquery-browser-mobile/jquery.browser.mobile.js"></script>
+            <script src="vendor/popper/umd/popper.min.js"></script>
+            <script src="vendor/bootstrap/js/bootstrap.js"></script>
+            <script src="vendor/bootstrap-datepicker/js/bootstrap-datepicker.js"></script>
+            <script src="vendor/common/common.js"></script>
+            <script src="vendor/nanoscroller/nanoscroller.js"></script>
+            <script src="vendor/magnific-popup/jquery.magnific-popup.js"></script>
+            <script src="vendor/jquery-placeholder/jquery-placeholder.js"></script>
+
+            <!-- Specific Vendor stuff -->
+
+            <script src="vendor/jquery-ui/jquery-ui.js"></script>
+            <script src="vendor/jqueryui-touch-punch/jqueryui-touch-punch.js"></script>
+            <script src="vendor/jquery-appear/jquery-appear.js"></script>
+            <script src="vendor/bootstrap-multiselect/bootstrap-multiselect.js"></script>
+            <script src="vendor/jquery.easy-pie-chart/jquery.easy-pie-chart.js"></script>
+            <script src="vendor/flot/jquery.flot.js"></script>
+            <script src="vendor/flot.tooltip/flot.tooltip.js"></script>
+            <script src="vendor/flot/jquery.flot.pie.js"></script>
+            <script src="vendor/flot/jquery.flot.categories.js"></script>
+            <script src="vendor/flot/jquery.flot.resize.js"></script>
+            <script src="vendor/jquery-sparkline/jquery-sparkline.js"></script>
+            <script src="vendor/raphael/raphael.js"></script>
+            <script src="vendor/morris/morris.js"></script>
+            <script src="vendor/gauge/gauge.js"></script>
+            <script src="vendor/snap.svg/snap.svg.js"></script>
+            <script src="vendor/liquid-meter/liquid.meter.js"></script>
+            <script src="vendor/jqvmap/jquery.vmap.js"></script>
+            <script src="vendor/jqvmap/data/jquery.vmap.sampledata.js"></script>
+            <script src="vendor/jqvmap/maps/jquery.vmap.world.js"></script>
+            <script src="vendor/jqvmap/maps/continents/jquery.vmap.africa.js"></script>
+            <script src="vendor/jqvmap/maps/continents/jquery.vmap.asia.js"></script>
+            <script src="vendor/jqvmap/maps/continents/jquery.vmap.australia.js"></script>
+            <script src="vendor/jqvmap/maps/continents/jquery.vmap.europe.js"></script>
+            <script src="vendor/jqvmap/maps/continents/jquery.vmap.north-america.js"></script>
+            <script src="vendor/jqvmap/maps/continents/jquery.vmap.south-america.js"></script>
+
+
+            <!-- Theme Base, Settings and Components-->
+            <script src="js/theme.js"></script>
+
+            <!-- Theme Custom-->
+            <script src="js/custom.js"></script>
+
+            <!--Theme Initialize Files-->
+            <script src="js/theme.init.js"></script>
+
+
+            <!--Examples-->
+            <script src="js/examples/examples.dashboard.js"></script>
+
+
+</body>
+
+
+
+
+</html>
