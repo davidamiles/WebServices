@@ -59,6 +59,27 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="html\login\css\skins\default.css" />
+    <Content Include="html\login\css\theme.css" />
+    <Content Include="html\login\defaultold.html" />
+    <Content Include="html\login\img\pvrlogo.png" />
+    <Content Include="html\login\js\theme.init.js" />
+    <Content Include="html\login\js\theme.js" />
+    <Content Include="html\login\vendor\bootstrap\css\bootstrap.css" />
+    <Content Include="html\login\vendor\font-awesome\css\fa-brands.css" />
+    <Content Include="html\login\vendor\font-awesome\css\fa-brands.min.css" />
+    <Content Include="html\login\vendor\font-awesome\css\fa-regular.css" />
+    <Content Include="html\login\vendor\font-awesome\css\fa-regular.min.css" />
+    <Content Include="html\login\vendor\font-awesome\css\fa-solid.css" />
+    <Content Include="html\login\vendor\font-awesome\css\fa-solid.min.css" />
+    <Content Include="html\login\vendor\font-awesome\css\fontawesome-all.css" />
+    <Content Include="html\login\vendor\font-awesome\css\fontawesome-all.min.css" />
+    <Content Include="html\login\vendor\font-awesome\css\fontawesome.css" />
+    <Content Include="html\login\vendor\font-awesome\css\fontawesome.min.css" />
+    <Content Include="html\www\css\theme.css" />
+    <Content Include="html\www\img\pvrlogo.png" />
+    <Content Include="html\www\js\theme.init.js" />
+    <Content Include="html\www\js\theme.js" />
     <Content Include="html\login\css\style.css" />
     <Content Include="html\login\default.html" />
     <Content Include="html\login\javascript\RestClient.js" />
@@ -81,6 +102,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="html\login\vendor\bootstrap\css\bootstrap.css.map" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
