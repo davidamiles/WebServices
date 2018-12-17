@@ -2,9 +2,12 @@
 {
     var _this = this;
 
-    this.ClientsWebSvcPath = null;
+    this.HtmlWebSvcPath = null;
+    this.ClientsWebSvcPath = null;      
+    this.JobsWebSvcPath = null;
+    this.LeadsWebSvcPath = null;
     this.SystemWebSvcPath = null;
-    this.BaseWebSvcPath = null;
+    
     this.Page = 1;
     this.Take = 10;
 
@@ -12,7 +15,7 @@
     {
         var scheme = window.location.protocol;
         var host = window.location.host;
-        _this.BaseWebSvcPath = scheme + "//" + host + "/html";
+        _this.HtmlWebSvcPath = scheme + "//" + host + "/html";
         _this.ClientsWebSvcPath = scheme + "//" + host + "/Clients";
         _this.JobsWebSvcPath = scheme + "//" + host + "/Jobs";
         _this.LeadsWebSvcPath = scheme + "//" + host + "/Leads";

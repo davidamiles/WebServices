@@ -21,6 +21,7 @@
     <script src="javascript/Constants.js" type="text/javascript"></script>
     <script src="javascript/ui-datagrid-1.2.js" type="text/javascript"></script>
     <script src="javascript/RestClient.js" type="text/javascript"></script>
+    <script src="javascript/parts/jobs.js" type="text/javascript"></script>
 
     <!-- Mobile Metas -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
@@ -56,11 +57,6 @@
     <!-- Head Libs -->
     <script src="vendor/modernizr/modernizr.js"></script>
     <script src="vendor/liquid-meter/liquid.meter.js"></script>
-
-    <!-- Custom JS -->
-    <script src="javascript/Constants.js" type="text/javascript"></script>
-    <script src="javascript/ui-datagrid-1.2.js" type="text/javascript"></script>
-    <script src="javascript/RestClient.js" type="text/javascript"></script>
 
     <!-- Load Main Dashboard into default view -->
     <script>
@@ -316,6 +312,7 @@
                     </div>
                 </div>
 
+                                
                 <div class="nano">
                     <div class="nano-content">
                         <nav id="menu" class="nav-main" role="navigation">
@@ -328,20 +325,19 @@
                                     </a>
                                 </li>
                                 <li>
-                                    <a class="nav-link" href="#" onclick="loadPartSales()">
-
+                                    <a class="nav-link" href="#" onclick="loadHtmlPart('/parts/SalesDash.html')">
                                         <i class="fas fa-tachometer-alt" aria-hidden="true"></i>
                                         <span>Sales Dashboard</span>
                                     </a>
                                 </li>
                                 <li>
-                                    <a class="nav-link" href="#" onclick="loadPartInv()">
+                                    <a class="nav-link" href="#" onclick="loadHtmlPart('/parts/InvDash.html')">
                                         <i class="fas fa-tachometer-alt" aria-hidden="true"></i>
                                         <span>Inventory Dashboard</span>
                                     </a>
                                 </li>
                                 <li>
-                                    <a class="nav-link" href="#" onclick="loadPartProd()">
+                                    <a class="nav-link" href="#" onclick="loadHtmlPart('/parts/ProdDash.html')">
                                         <i class="fas fa-tachometer-alt" aria-hidden="true"></i>
                                         <span>Production Dashboard</span>
                                     </a>
@@ -355,38 +351,39 @@
 
                                 </li>
                                 <li>
-                                    <a class="nav-link" href="#" onclick="loadPartAllContacts()">
+                                    <a class="nav-link" href="#" onclick="loadHtmlPart('/parts/AllJobs.html')">
                                         <span>All Jobs</span>
                                     </a>
                                 </li>
                                 <li>
-                                    <a class="nav-link" href="#" onclick="loadPartAllContacts()">
+                                    <a class="nav-link" href="#" onclick="loadHtmlPart('/parts/AllContacts.html')">
                                         <span>All Contacts</span>
                                     </a>
                                 </li>
 
                                 <li>
-                                    <a class="nav-link" href="#" onclick="loadPartNewContacts()">
+                                    <a class="nav-link" href="#" onclick="loadHtmlPart('/parts/NewContact.html')">
                                         <span>Add New Contact</span>
                                     </a>
                                 </li>
                                 <li>
-                                    <a class="nav-link" href="#" onclick="loadPartAllLeads()">
+                                    <a class="nav-link" href="#" onclick="loadHtmlPart('/parts/AllLeads.html')">
                                         <span>All Leads</span>
                                     </a>
                                 </li>
                                 <li>
-                                    <a class="nav-link" href="#" onclick="loadPartNewLeads()">
+                                    <a class="nav-link" href="#" onclick="loadHtmlPart('/parts/NewLeads.html')">
                                         <span>Add New Lead</span>
                                     </a>
                                 </li>
                                 <li>
-                                    <a class="nav-link" href="#" onclick="loadPartAllVendors()">
+                                    <a class="nav-link" href="#" onclick="loadHtmlPart('/parts/AllVendors.html')">
                                         <span>All Vendors</span>
                                     </a>
                                 </li>
                                 <li>
-                                    <a class="nav-link" href="#" onclick="loadPartNewVendor()">
+                                    <a class="nav-link" href="#" onclick="loadHtmlPart('/parts/NewVendor
+.html')">
                                         <span>Add New Vendor</span>
                                     </a>
                                 </li>
@@ -394,6 +391,7 @@
                         </nav>
                     </div>
                 </div>
+            
             </aside>
             <!--End Sidebar-->
             <!--Main Content section-->
@@ -433,9 +431,6 @@
 
                                     <header class="panel-heading"></header>
 
-
-
-
                                 </section>
 
                             </div>
@@ -450,71 +445,23 @@
             
             <script type="text/javascript">
 
-              //Load Sales Dashboard
-                function loadPartSales() {
-                    $(document).ready(function () {
-                        $('#divContainer').load("parts/SalesDash.html");
+                function loadHtmlPart(path)
+                {
+                    var rc = new RestClient(_constants.HtmlWebSvcPath);                    
+                    rc.GetHtml(path, function (restCallbackObj)
+                    {
+                        if (restCallbackObj.StatusCode == 200)
+                        {
+                            document.getElementById("divContainer").innerHTML = restCallbackObj.ResponseText;                            
+                        }
+                        else
+                        {
+                            //
+                            // show the user some error here....
+                            //
+                        }
                     });
                 }
-
-                //Load Inventory Dashboard
-                function loadPartInv() {
-                    $(document).ready(function () {
-                        $('#divContainer').load("parts/InvDash.html");
-                    });
-                }
-
-                //Load Production 'job' Dashboard
-                function loadPartProd() {
-                    $(document).ready(function () {
-                        $('#divContainer').load("parts/ProdDash.html");
-                    });
-                    }
-
-                //Load All Contacts Gridview
-                function loadPartAllContacts() {
-                    $(document).ready(function () {
-                        $('#divContainer').load("parts/AllContacts.html");
-                    });
-                }
-
-                //Load New Contacts Form
-                function loadPartNewContacts() {
-                    $(document).ready(function () {
-                        $('#divContainer').load("parts/NewContact.html");
-                    });
-                }
-
-                //Load All Leads Gridview
-                function loadPartAllLeads() {
-                    $(document).ready(function () {
-                        $('#divContainer').load("parts/AllLeads.html");
-                    });
-                }
-
-                //Load New Leads Form
-                function loadPartNewLeads() {
-                    $(document).ready(function () {
-                        $('#divContainer').load("parts/NewLeads.html");
-                    });
-                }
-
-                //Load All Vendors Gridview
-                function loadPartAllVendors() {
-                    $(document).ready(function () {
-                        $('#divContainer').ready("parts/AllVendors.html");
-                    });
-                }
-
-                //Load New Vendor Form
-                function loadPartNewVendor() {
-                    $(document).ready(function () {
-                        $('#divContainer').ready("parts/NewVendor.html");
-                    });
-                }
-
-         
-
 
             </script>
 

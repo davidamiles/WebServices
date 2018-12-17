@@ -133,7 +133,7 @@
         xmlHttp.setRequestHeader("Cache-Control", "no-cache");
         xmlHttp.setRequestHeader("Pragma", "no-cache");
         xmlHttp.send(postData);
-    }    
+    }
 
     function send(url, method, callback)
     {
@@ -165,7 +165,7 @@
         xmlHttp.setRequestHeader("Pragma", "no-cache");
         xmlHttp.send();
     }
-    
+
     function GetErrorMessageString(statusCode, statusText)
     {
         return "Error Code: " + statusCode + "   " + statusText;

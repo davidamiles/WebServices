@@ -103,7 +103,7 @@
     <Content Include="html\www\parts\AllLeads.html" />
     <Content Include="html\www\parts\AllVendors.html" />
     <Content Include="html\www\parts\InvDash.html" />
-    <Content Include="html\www\parts\Jobs.html" />
+    <Content Include="html\www\parts\AllJobs.html" />
     <Content Include="html\www\parts\mainDash.html" />
     <Content Include="html\www\parts\NewContact.html" />
     <Content Include="html\www\parts\NewLeads.html" />
