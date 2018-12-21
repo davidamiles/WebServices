@@ -2,6 +2,7 @@
 {
     var _jobs = [];
     var _table = document.createElement("table");
+    _table = divContainer;
 
     this.GetJobs = function GetJobs()
     {
@@ -15,8 +16,7 @@
 
     function bind()
     {
-        //$("#grid").igGrid({
-        _table.igGrid({
+        $("#grid").igGrid({        
             primaryKey: "Id",
             caption: "<span> <img src=\"//www.infragistics.com/media/441501/horz_logo.png\" alt=\"Infragistics\"></span>",
             width: '100%',
@@ -30,7 +30,7 @@
             ],
             autofitLastColumn: false,
             autoGenerateColumns: false,
-            dataSource: jobs,
+            dataSource: _jobs,
             responseDataKey: "results",
             autoCommit: true,
             features: [
