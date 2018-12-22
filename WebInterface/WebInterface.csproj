@@ -98,7 +98,7 @@
     <Content Include="html\www\javascript\theme.init.js" />
     <Content Include="html\www\javascript\theme.js" />
     <Content Include="html\www\javascript\ui-datagrid-1.2.js" />
-    <Content Include="html\www\JobsSample.html" />
+    <Content Include="html\www\Jobs.html" />
     <Content Include="html\www\LeadsSample.html" />
     <Content Include="html\www\parts\AllContacts.html" />
     <Content Include="html\www\parts\AllLeads.html" />

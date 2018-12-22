@@ -29,7 +29,7 @@
 
     <!-- Web Fonts  -->
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800|Shadows+Into+Light" rel="stylesheet" type="text/css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>-->
 
     <!-- Vendor CSS -->
     <link rel="stylesheet" href="vendor/bootstrap/css/bootstrap.css" />
@@ -96,12 +96,42 @@
             });
         }
 
+        function loadHtmlPart(path, loadFunction)
+        {
+            var rc = new RestClient(_constants.HtmlWebSvcPath);
+            rc.GetHtml(path, function (restCallbackObj)
+            {
+                if (restCallbackObj.StatusCode == 200)
+                {
+                    document.getElementById("divContainer").innerHTML = restCallbackObj.ResponseText;
+                    loadFunction();
+                }
+                else
+                {
+                    //
+                    // show the user some error here....
+                    //
+                }
+            });
+        }
+
+        function loadJobs()
+        {
+            _jobs = new Jobs();
+            _jobs.GetJobs();
+        }
+
+
+
+
     </script>
 
     <header id="headerSection"></header>
 
-    <section class="body">       
+    <section class="body">
+        <div id="divContainer">
 
+        </div>
         <div class="inner-wrapper">
             <!--start sidebar navigation-->
             <aside id="sidebar-left" class="sidebar-left">
@@ -159,7 +189,7 @@
 
                                 </li>
                                 <li>
-                                    <a class="nav-link" href="#" onclick="loadHtmlPart('/parts/AllJobs.html', loadJobs)">
+                                    <a class="nav-link" href="#" onclick="loadHtmlPart('/parts/AllJobs.html'); loadJobs();">
                                         <span>All Jobs</span>
                                     </a>
                                 </li>
@@ -220,7 +250,8 @@
                 </header>
 
                 <!--Start Page -- this will become the main div where 'parts' of the app will be loaded-->
-                <div id="divContainer" class="row">
+
+                <div id="" class="row">
 
                     <div class="col-md-6">
 
@@ -247,37 +278,6 @@
             </section>
 
             <!-- JS to load parts into divContainer when selected from Sidebar Menu-->
-
-            <script type="text/javascript">
-
-                function loadHtmlPart(path, loadFunction)
-                {
-                    var rc = new RestClient(_constants.HtmlWebSvcPath);
-                    rc.GetHtml(path, function (restCallbackObj)
-                    {
-                        if (restCallbackObj.StatusCode == 200)
-                        {
-                            document.getElementById("divContainer").innerHTML = restCallbackObj.ResponseText;
-                            loadFunction();
-                        }
-                        else
-                        {
-                            //
-                            // show the user some error here....
-                            //
-                        }
-                    });
-                }
-
-                function loadJobs()
-                {
-                    _jobs = new Jobs(document.getElementById("grid"));
-                    _jobs.GetJobs();
-                }
-
-            </script>
-
-
             <!--Vendor-->
 
             <script src="vendor/jquery/jquery.js"></script>
@@ -331,6 +331,8 @@
 
             <!--Examples-->
             <script src="js/examples/examples.dashboard.js"></script>
+
+
 
     </section>
 

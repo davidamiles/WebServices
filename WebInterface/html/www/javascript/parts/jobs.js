@@ -1,8 +1,7 @@
-﻿function Jobs(divContainer)
+﻿function Jobs()
 {
     var _jobs = [];
-    var _table = document.createElement("table");
-    _table = divContainer;
+    var _table = document.createElement("table");    
 
     this.GetJobs = function GetJobs()
     {
