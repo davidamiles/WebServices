@@ -7,9 +7,9 @@ using System.Threading.Tasks;
 
 namespace Peek.WebService.Models
 {
-    public class InfragisticJobsResult
+    public class Result<T>
     {
-        public List<JobModel> Results { get; set; }
+        public List<T> Records { get; set; }
         public int TotalRecordsCount { get; set; }
     }
 }

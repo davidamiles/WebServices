@@ -9,6 +9,7 @@ using System.Text;
 using Peek.Models.Jobs;
 using Peek.Repository;
 using Peek.Repository.Jobs;
+using Peek.WebService.Models;
 
 namespace Peek.WebService.WebServices
 {
@@ -19,9 +20,9 @@ namespace Peek.WebService.WebServices
 
        }
 
-        public IEnumerable<JobModel> SelectJobs(string skip, string take)
+        public Result<JobModel> SelectJobs(string skip, string take)
         {
-            IEnumerable<JobModel> models = null;
+            Result<JobModel> result = null;
 
             try
             {
@@ -29,7 +30,8 @@ namespace Peek.WebService.WebServices
                 int t = int.Parse(take);
 
                 IJobsRepo repo = RepoFactory.GetJobsRepo();
-                models = repo.Select(s, t);
+                IEnumerable<JobModel> models = repo.Select(s, t);
+                result =  new Result<JobModel>() { Records = models.ToList(), TotalRecordsCount = 1000 };
             }           
             catch (DbEntityValidationException ex)
             {
@@ -58,7 +60,7 @@ namespace Peek.WebService.WebServices
                 base.LogMessage(ex.Message, Peek.Models.LogSeverity.Error, ex.StackTrace);
             }
 
-            return models;
+            return result;
         }
     }
 }

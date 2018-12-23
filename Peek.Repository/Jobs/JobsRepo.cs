@@ -66,7 +66,7 @@ namespace Peek.Repository.Jobs
             foreach(Entities.Job entity in entities)
             {
                 JobModel model = new JobModel();
-
+                model.Id = entity.Id;
                 model.ClientId = (int)entity.ClientID;
                 model.LeadId = (int)entity.LeadID;
                 model.Assignedto = entity.AssignedTo;

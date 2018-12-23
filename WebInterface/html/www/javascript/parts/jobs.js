@@ -5,12 +5,13 @@
 
     this.GetJobs = function GetJobs()
     {
-        var restClient = new RestClient(_constants.JobsWebSvcPath);
-        restClient.SelectJobs(0, 10, function (restCallbackObj)
-        {
-            _jobs = restCallbackObj.ResponseJSON;
-            bind();
-        });
+        bind();
+        //var restClient = new RestClient(_constants.JobsWebSvcPath);
+        //restClient.SelectJobs(0, 10, function (restCallbackObj)
+        //{
+        //    _jobs = restCallbackObj.ResponseJSON;
+        //    bind();
+        //});
     }
 
     function bind()
@@ -30,7 +31,7 @@
             autofitLastColumn: false,
             autoGenerateColumns: false,
             dataSource: _constants.JobsWebSvcPath,
-            responseDataKey: "results",
+            responseDataKey: "Records",
             autoCommit: true,
             features: [
                 //{
@@ -64,7 +65,7 @@
                     name: "Selection"
                 },
                 {
-                    name: "Paging", type: "remote", pageSize: 10
+                    name: "Paging", type: "remote", pageSize: 10, pageSizeUrlKey: "take", pageIndexUrlKey: "skip", recordCountKey: "TotalRecordsCount"
                 },
                 {
                     name: "Resizing"

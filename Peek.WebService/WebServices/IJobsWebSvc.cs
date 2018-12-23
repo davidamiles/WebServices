@@ -1,4 +1,5 @@
 ﻿using Peek.Models.Jobs;
+using Peek.WebService.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,7 +14,7 @@ namespace Peek.WebService.WebServices
     public interface IJobsWebSvc
     {
         [OperationContract]
-        [WebGet(UriTemplate = "desc/id?skip={skip}&take={take}")]
-        IEnumerable<JobModel> SelectJobs(string skip, string take);
+        [WebGet(UriTemplate = "?skip={skip}&take={take}")]
+        Result<JobModel> SelectJobs(string skip, string take);
     }
 }
