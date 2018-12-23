@@ -14,7 +14,7 @@ namespace Peek.WebService.WebServices
     public interface IJobsWebSvc
     {
         [OperationContract]
-        [WebGet(UriTemplate = "?skip={skip}&take={take}")]
-        Result<JobModel> SelectJobs(string skip, string take);
+        [WebGet(UriTemplate = "?page={page}&take={take}")]
+        Result<JobModel> SelectJobs(string page, string take);
     }
 }

@@ -95,7 +95,7 @@
     <Content Include="html\www\index.html" />
     <Content Include="html\www\javascript\Constants.js" />
     <Content Include="html\www\javascript\Header.js" />
-    <Content Include="html\www\javascript\parts\jobs.js" />
+    <Content Include="html\www\javascript\parts\Jobs.js" />
     <Content Include="html\www\javascript\RestClient.js" />
     <Content Include="html\www\javascript\theme.init.js" />
     <Content Include="html\www\javascript\theme.js" />

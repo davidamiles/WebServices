@@ -17,17 +17,16 @@ namespace Peek.WebService.WebServices
     {
        public JobsWebSvc() : base("JobsWebSvc", null, false)
        {
-
        }
 
-        public Result<JobModel> SelectJobs(string skip, string take)
+        public Result<JobModel> SelectJobs(string page, string take)
         {
             Result<JobModel> result = null;
 
             try
             {
-                int s = int.Parse(skip);
                 int t = int.Parse(take);
+                int s = int.Parse(page) * t;                
 
                 IJobsRepo repo = RepoFactory.GetJobsRepo();
                 IEnumerable<JobModel> models = repo.Select(s, t);
