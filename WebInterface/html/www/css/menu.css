@@ -1,12 +1,25 @@
-﻿.MenuContainer {
+﻿#menuContainer {
+    background-color: #5083FA;
     border: 1px solid black;
-    z-index: 1000;
+    padding: .5rem;
+    /*left: 0;
+    right: 0;
+    top: 0;
+    position: absolute;*/
+    /*text-align: center;*/
 }
+
+
+    #menuContainer:hover {
+        background-color: #074FF9;
+        color: black;
+        cursor: pointer;
+    }
+
 
 .MenuItem {
     position: relative;
     display: inline-block;
-    z-index: 1000;
 }
 
     .MenuItem:hover .MenuContent {
@@ -33,7 +46,7 @@
     }
 
 .MenuContent {
-    background-color: white;
+    background-color: #BBCCF2;
     position: absolute;
     display: none;
     min-width: 160px;
@@ -42,14 +55,18 @@
 
     .MenuContent a {
         color: black;
-        padding: 12px 16px;
+        padding: 10px 14px;
         display: block;
         text-decoration: none;
-        font-family: sans-serif;
-        font-size: 12px;
+        font-family: Verdana;
+        font-size: 14px;
+        font-weight: 600;
+
+        
     }
 
         .MenuContent a:hover {
-            background-color: whitesmoke;
+            background-color: #9AB2E9;
             cursor: pointer;
+            color: white;
         }

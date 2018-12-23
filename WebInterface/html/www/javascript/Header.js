@@ -11,11 +11,26 @@
 
 function getUsername(url)
 {
-    var restClient = new RestClient(url)
+    var restClient = new RestClient(url);
     restClient.GetUsername(function (restCallbackObj)
     {
         document.getElementById("usernameDiv").innerHTML = restCallbackObj.ResponseText;        
     });
+}
+
+function loadMenu()
+{
+    var menuItems = [];
+
+    var menuItem = new MenuItem("", null, null, true);
+    menuItem.SubMenuItems.push(new MenuItem("JOBS", null, loadJobs, false));
+    menuItem.SubMenuItems.push(new MenuItem("LEADS", "/html/Leads.html", null, false));
+    menuItem.SubMenuItems.push(new MenuItem("CLIENTS", "/html/Clients.html", null, false));
+
+    menuItems.push(menuItem);
+
+    var menu = new Menu(document.getElementById("menuContainer"));
+    menu.AddMenuItemsToAnchor(menuItems);
 }
 
 function logout()

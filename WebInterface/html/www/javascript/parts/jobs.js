@@ -17,7 +17,7 @@
     {
         $("#grid").igGrid({        
             primaryKey: "Id",
-            caption: "<span> <img src=\"//www.infragistics.com/media/441501/horz_logo.png\" alt=\"Infragistics\"></span>",
+            //caption: "<span> <img src=\"//www.infragistics.com/media/441501/horz_logo.png\" alt=\"Infragistics\"></span>",
             width: '100%',
             columns: [
                 { headerText: "Id", key: "Id", dataType: "number", width: "15%", hidden: true },
@@ -29,43 +29,42 @@
             ],
             autofitLastColumn: false,
             autoGenerateColumns: false,
-            dataSource: _jobs,
+            dataSource: _constants.JobsWebSvcPath,
             responseDataKey: "results",
             autoCommit: true,
             features: [
-                {
-                    name: "Sorting",
-                    sortingDialogContainment: "window"
-                },
-                {
-                    name: "Filtering",
-                    type: "local",
-                    columnSettings: [
-                        {
-                            columnKey: "ImageUrl",
-                            allowFiltering: false
-                        },
-                        {
-                            columnKey: "InStock",
-                            condition: "greaterThan"
-                        }
-                    ]
-                },
-                {
-                    name: "GroupBy",
-                    columnSettings: [
-                        {
-                            columnKey: "CustomerName",
-                            isGroupBy: true
-                        }
-                    ]
-                },
+                //{
+                //    name: "Sorting",
+                //    sortingDialogContainment: "window"
+                //},
+                //{
+                //    name: "Filtering",
+                //    type: "local",
+                //    columnSettings: [
+                //        {
+                //            columnKey: "ImageUrl",
+                //            allowFiltering: false
+                //        },
+                //        {
+                //            columnKey: "InStock",
+                //            condition: "greaterThan"
+                //        }
+                //    ]
+                //},
+                //{
+                //    name: "GroupBy",
+                //    columnSettings: [
+                //        {
+                //            columnKey: "CustomerName",
+                //            isGroupBy: true
+                //        }
+                //    ]
+                //},
                 {
                     name: "Selection"
                 },
                 {
-                    name: "Paging",
-                    pageSize: 10
+                    name: "Paging", type: "remote", pageSize: 10
                 },
                 {
                     name: "Resizing"

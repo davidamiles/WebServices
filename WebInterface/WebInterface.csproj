@@ -67,9 +67,11 @@
     <Content Include="html\www\css\datagrid.css" />
     <Content Include="html\www\css\loading.css" />
     <Content Include="html\www\css\menu.css" />
+    <Content Include="html\www\css\text.css" />
     <Content Include="html\www\css\theme.css" />
     <Content Include="html\www\default.html" />
     <Content Include="html\www\images\!logged-user.jpg" />
+    <Content Include="html\www\images\menu-icon.png" />
     <Content Include="html\www\images\patterns\az_subtle.png" />
     <Content Include="html\www\images\patterns\blizzard.png" />
     <Content Include="html\www\images\patterns\bright_squares.png" />
@@ -98,6 +100,7 @@
     <Content Include="html\www\javascript\theme.init.js" />
     <Content Include="html\www\javascript\theme.js" />
     <Content Include="html\www\javascript\ui-datagrid-1.2.js" />
+    <Content Include="html\www\javascript\ui-menu.js" />
     <Content Include="html\www\Jobs.html" />
     <Content Include="html\www\LeadsSample.html" />
     <Content Include="html\www\parts\AllContacts.html" />
@@ -105,13 +108,11 @@
     <Content Include="html\www\parts\AllVendors.html" />
     <Content Include="html\www\parts\Header.html" />
     <Content Include="html\www\parts\InvDash.html" />
-    <Content Include="html\www\parts\AllJobs.html" />
+    <Content Include="html\www\parts\Jobs.html" />
     <Content Include="html\www\parts\mainDash.html" />
     <Content Include="html\www\parts\NewContact.html" />
     <Content Include="html\www\parts\NewLeads.html" />
     <Content Include="html\www\parts\NewVendor.html" />
-    <Content Include="html\www\parts\part2.html" />
-    <Content Include="html\www\parts\part1.html" />
     <Content Include="html\www\parts\ProdDash.html" />
     <Content Include="html\www\parts\SalesDash.html" />
     <Content Include="html\www\vendor\animate\animate.css" />

@@ -5,32 +5,44 @@
 </head>
 <body onload="onLoad()">
 
+    <!-- Ignite UI Required Combined CSS Files -->
+    <link href="http://cdn-na.infragistics.com/igniteui/2018.1/latest/css/themes/infragistics/infragistics.theme.css" rel="stylesheet" />
+    <link href="http://cdn-na.infragistics.com/igniteui/2018.1/latest/css/structure/infragistics.css" rel="stylesheet" />
+
+    <script src="http://ajax.aspnetcdn.com/ajax/modernizr/modernizr-2.8.3.js"></script>
+    <script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
+    <script src="http://code.jquery.com/ui/1.11.1/jquery-ui.min.js"></script>
+
+    <!-- Ignite UI Required Combined JavaScript Files -->
+    <script src="http://cdn-na.infragistics.com/igniteui/2018.1/latest/js/infragistics.core.js"></script>
+    <script src="http://cdn-na.infragistics.com/igniteui/2018.1/latest/js/infragistics.lob.js"></script>
+
+    <link href="/html/css/menu.css" rel="stylesheet" />
+
+    <script src="javascript/ui-menu.js" type="text/javascript"></script>
     <script src="javascript/Constants.js" type="text/javascript"></script>
     <script src="javascript/Header.js" type="text/javascript"></script>
     <script src="javascript/RestClient.js" type="text/javascript"></script>
+    <script src="javascript/parts/jobs.js" type="text/javascript"></script>
 
     <script type="text/javascript">
 
         var _constants = new Constants();
-        _constants.Init();
+        var _mainSection = document.createElement("div");
+        var _jobs = new Jobs();
 
         function onLoad()
         {
+            _constants.Init();
+            _mainSection = document.getElementById("mainSection");
+
             loadHeader(_constants.HtmlWebSvcPath, function ()
             {
                 getUsername(_constants.SystemWebSvcPath);
+                loadMenu(document.getElementById("menuContainer"));
             });
 
-            loadMainDashboard();
-        }
-
-        function loadMainDashboard()
-        {
-            var restClient = new RestClient(_constants.HtmlWebSvcPath);
-            restClient.GetHtml("/parts/mainDash.html", function (restCallbackObj)
-            {
-                document.getElementById("divContainer").innerHTML = restCallbackObj.ResponseText;
-            });
+            loadHtmlPart("/parts/mainDash.html", null);
         }
 
         function loadHtmlPart(path, loadFunction)
@@ -40,8 +52,12 @@
             {
                 if (restCallbackObj.StatusCode == 200)
                 {
-                    document.getElementById("divContainer").innerHTML = restCallbackObj.ResponseText;
-                    loadFunction();
+                    _mainSection.innerHTML = restCallbackObj.ResponseText;
+
+                    if (loadFunction != null)
+                    {
+                        loadFunction();
+                    }
                 }
                 else
                 {
@@ -54,8 +70,12 @@
 
         function loadJobs()
         {
-            _jobs = new Jobs();
-            _jobs.GetJobs();
+            loadHtmlPart("/parts/Jobs.html", function ()
+            {
+                _jobs = new Jobs();
+                _jobs.GetJobs();
+            });
+
         }
 
 
@@ -64,7 +84,7 @@
     <header id="headerSection" style="width: auto; height:120px;"></header>
 
     <section style="margin-top: 10px; width: auto; height: auto; background-color: gainsboro">
-        <div id="divContainer">
+        <div id="mainSection">
 
         </div>
     </section>
