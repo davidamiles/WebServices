@@ -37,21 +37,21 @@
         send(url, "GET", callback);
     }
 
-    this.UpdateJob = function UpdateJob(client, callback)
+    this.UpdateJob = function UpdateJob(job, callback)
     {
         var url = _rootPath;
-        send(url, "PUT", JSON.stringify(client), callback);
+        sendData(url, "PUT", JSON.stringify(job), callback);
     }
 
-    this.InsertJob = function InsertJob(client, callback)
+    this.InsertJob = function InsertJob(job, callback)
     {
         var url = _rootPath;
-        send(url, "POST", JSON.stringify(client), callback);
+        sendData(url, "POST", JSON.stringify(job), callback);
     }
 
-    this.DeleteJob = function DeleteJob(clientId, callback)
+    this.DeleteJob = function DeleteJob(jobId, callback)
     {
-        var url = _rootPath.concat("/" + clientId);
+        var url = _rootPath.concat("/" + jobId);
         send(url, "DELETE", callback);
     }
 
@@ -104,7 +104,7 @@
 
 
 
-    function send(url, method, postData, callback)
+    function sendData(url, method, postData, callback)
     {
         var xmlHttp = new XMLHttpRequest();
 

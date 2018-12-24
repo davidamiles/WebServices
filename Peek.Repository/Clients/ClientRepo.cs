@@ -91,6 +91,10 @@ namespace Peek.Repository.Clients
 
             return clients;
         }
-               
+
+        public long Count()
+        {
+            return this.baseContext.Clients.Count();
+        }
     }
 }

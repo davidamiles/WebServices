@@ -13,21 +13,58 @@
     
     function onInsert(evt, ui)
     {
-        console.log("onInsert " + ui.rowID);
+        console.log("onInsert ");
+        var restClient = new RestClient(_constants.JobsWebSvcPath);
+        restClient.InsertJob(ui.values, function (restCallbackObj)
+        {
+            if (restCallbackObj.StatusCode != 200)
+            {
+                //
+                // show the user an error message
+                //
+            }
+        });
     }
 
     function onUpdate(evt, ui)
     {
-        console.log("onUpdate " + ui.rowID);
+        if (ui.update)
+        {
+            console.log("onUpdate " + ui.rowID);
+
+            var restClient = new RestClient(_constants.JobsWebSvcPath);
+            restClient.UpdateJob(ui.values, function (restCallbackObj)
+            {
+                if (restCallbackObj.StatusCode != 200)
+                {
+                    //
+                    // show an error to the user
+                    //
+                }
+            });
+        }
     }
 
     function onDelete(evt, ui)
     {        
         console.log("onDelete " + ui.rowID);
-        var s = ui.owner.grid.dataSource._data.forEach(function (record)
+
+        var restClient = new RestClient(_constants.JobsWebSvcPath);
+        restClient.DeleteJob(ui.rowID, function (restCallbackObj)
         {
-            var r = record.Id;
+            if (restCallbackObj.StatusCode != 200)
+            {
+                //
+                // show an error to the user
+                //
+            }
         });
+
+
+        //var s = ui.owner.grid.dataSource._data.forEach(function (record)
+        //{
+        //    var r = record.Id;
+        //});
     }
 
     function init()

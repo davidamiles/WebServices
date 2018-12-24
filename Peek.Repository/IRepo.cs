@@ -15,5 +15,6 @@ namespace Peek.Repository
         IEnumerable<T> Select(int skip, int take);
         void Delete(T item);
         bool Exists(T item);
+        long Count();
     }
 }

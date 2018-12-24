@@ -2,6 +2,7 @@
 using Peek.WebService.Models;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Runtime.Serialization;
 using System.ServiceModel;
@@ -16,5 +17,17 @@ namespace Peek.WebService.WebServices
         [OperationContract]
         [WebGet(UriTemplate = "?page={page}&take={take}")]
         Result<JobModel> SelectJobs(string page, string take);
+
+        [OperationContract]
+        [WebInvoke(Method = "DELETE", UriTemplate = "{id}")]
+        void DeleteJob(string id);
+
+        [OperationContract]
+        [WebInvoke(Method = "POST", UriTemplate = "")]
+        void InsertJob(Stream stream);
+
+        [OperationContract]
+        [WebInvoke(Method = "PUT", UriTemplate = "")]
+        void UpdateJob(Stream stream);
     }
 }

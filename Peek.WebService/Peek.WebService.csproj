@@ -84,6 +84,10 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Peek.Core.Utilities\Peek.Core.Utilities.csproj">
+      <Project>{2151513F-205B-4AC2-AD49-8572046E2AC4}</Project>
+      <Name>Peek.Core.Utilities</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Peek.Core\Peek.Core.csproj">
       <Project>{d81f99f5-7c6f-480c-ac27-f928de6d8b91}</Project>
       <Name>Peek.Core</Name>
