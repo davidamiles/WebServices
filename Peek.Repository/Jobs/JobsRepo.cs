@@ -46,14 +46,14 @@ namespace Peek.Repository.Jobs
                 ClientID = item.ClientId,
                 GrossProfit = item.GrossProfit,
                 Active = item.IsActive,
-                AssignedTo = item.Assignedto,          
+                AssignedTo = item.Assignedto,
                 Zipcode = item.Zipcode,
                 PhoneNum = item.PhoneNum,
                 PONumber = item.PONumber,
                 ShipToAddress = item.ShipToAddress,
                 City = item.City,
                 Email = item.Email,
-                Status = item.Status,                
+                Status = item.Status,
                 CoClient = item.CoClient,
                 Commission = item.Commission,
                 CommissionBalance = item.CommissionBalance,
@@ -75,7 +75,7 @@ namespace Peek.Repository.Jobs
                 LastActivity = item.LastActivity,
                 Notes = item.Notes,
                 PaymentNotes = item.PaymentNotes,
-                OverheadCosts = item.OverheadCosts,         
+                OverheadCosts = item.OverheadCosts,
                 LastTrueUpDate = item.LastTruedUpDate,
                 LastTrueUpPerson = item.LastTruedUpPerson,
                 PaymentType = item.PaymentType,
@@ -123,7 +123,7 @@ namespace Peek.Repository.Jobs
                 entity.ShipToAddress = item.ShipToAddress;
                 entity.City = item.City;
                 entity.Email = item.Email;
-                entity.Status = item.Status;            
+                entity.Status = item.Status;
                 entity.CoClient = item.CoClient;
                 entity.Commission = item.Commission;
                 entity.CommissionBalance = item.CommissionBalance;
@@ -145,12 +145,13 @@ namespace Peek.Repository.Jobs
                 entity.LastActivity = item.LastActivity;
                 entity.Notes = item.Notes;
                 entity.PaymentNotes = item.PaymentNotes;
-                entity.OverheadCosts = item.OverheadCosts;             
+                entity.OverheadCosts = item.OverheadCosts;
                 entity.LastTrueUpDate = item.LastTruedUpDate;
                 entity.LastTrueUpPerson = item.LastTruedUpPerson;
                 entity.PaymentType = item.PaymentType;
                 entity.PermitNo = item.PermitNumber;
                 entity.TruedUp = item.IsTruedUp;
+                
             }
 
             this.baseContext.SaveChanges();
@@ -165,34 +166,52 @@ namespace Peek.Repository.Jobs
         {
             List<JobModel> models = new List<JobModel>();
 
-            foreach(Entities.Job entity in entities)
+            foreach (Entities.Job entity in entities)
             {
-                JobModel model = new JobModel();
-                model.Id = entity.Id;
-                model.ClientId = (int)entity.ClientID;
-                model.LeadId = (int)entity.LeadID;
-                model.Assignedto = entity.AssignedTo;
-                model.City = entity.City;
-                model.CoClient = entity.CoClient;
-                model.Commission = (float)entity.Commission;
-                model.CommissionBalance = (float)entity.CommissionBalance;
-                model.CommissionPercentage = (float)((entity.CommissionPercentage != null) ? entity.CommissionPercentage : 0);
-                model.ContractAmount = (double)entity.ContractAmount;
-                model.CreateDate = (DateTime)entity.CreateDate;
-                model.CustomerName = entity.CustomerName;
-                model.Email = entity.Email;
-                model.GrossProfit = (double)entity.GrossProfit;
-                model.HasInsuranceSupplement = (bool)entity.InsSupplement;
-                model.InsuranceAdjusterDesk = entity.InsAdjusterDesk;
-                model.InsuranceAdjusterField = entity.InsAdjusterField;
-                model.InsuranceCarrier = entity.InsInsuranceCarrier;
-                model.InsuranceClaimNumber = entity.InsClaimNum;
-                model.InsuranceEmail = entity.InsEmail;
-                model.InsuranceExtension = entity.InsExtension;
-                model.InsuranceFax = entity.InsFax;
-                model.InsurancePhone = entity.InsPhone;
-                model.IsActive = (bool)entity.Active;
-                model.IsTruedUp = (bool)entity.TruedUp;
+                JobModel model = new JobModel()
+                {
+                    Id = entity.Id,
+                    ClientId = (int)entity.ClientID,
+                    LeadId = (int)entity.LeadID,
+                    Assignedto = entity.AssignedTo,
+                    City = entity.City,
+                    CoClient = entity.CoClient,
+                    Commission = (float)((entity.Commission != null) ? entity.Commission : 0),
+                    CommissionBalance = (float)((entity.CommissionBalance != null) ? entity.CommissionBalance : 0),
+                    CommissionPercentage = (float)((entity.CommissionPercentage != null) ? entity.CommissionPercentage : 0),
+                    ContractAmount = (double)((entity.ContractAmount != null) ? entity.ContractAmount : 0),
+                    CreateDate = (DateTime)entity.CreateDate,
+                    LastActivity = (DateTime)entity.LastActivity,
+                    CustomerName = entity.CustomerName,
+                    Email = entity.Email,
+                    GrossProfit = (double)((entity.GrossProfit != null) ? entity.GrossProfit : 0),
+                    HasInsuranceSupplement = (bool)entity.InsSupplement,
+                    InsuranceAdjusterDesk = entity.InsAdjusterDesk,
+                    InsuranceAdjusterField = entity.InsAdjusterField,
+                    InsuranceCarrier = entity.InsInsuranceCarrier,
+                    InsuranceClaimNumber = entity.InsClaimNum,
+                    InsuranceEmail = entity.InsEmail,
+                    InsuranceExtension = entity.InsExtension,
+                    InsuranceFax = entity.InsFax,
+                    InsurancePhone = entity.InsPhone,
+                    IsActive = (bool)entity.Active,
+                    IsTruedUp = (bool)entity.TruedUp,
+                    JobCosts = (float)((entity.JobCosts != null) ? entity.JobCosts : 0),
+                    JobSubType = entity.JobSubType,
+                    JobType = entity.JobType,
+                    LastTruedUpDate = (DateTime)((entity.LastTrueUpDate != null) ? entity.LastTrueUpDate : DateTime.Now),
+                    LastTruedUpPerson = entity.LastTrueUpPerson,
+                    Notes = entity.Notes,
+                    OverheadCosts = (float)((entity.OverheadCosts != null) ? entity.OverheadCosts : 0),
+                    PaymentNotes = entity.PaymentNotes,
+                    PaymentType = entity.PaymentType,
+                    PermitNumber = entity.PermitNo,
+                    PhoneNum = entity.PhoneNum,
+                    PONumber = entity.PONumber,
+                    ShipToAddress = entity.ShipToAddress,
+                    Status = entity.Status,
+                    Zipcode = entity.Zipcode
+                };
 
                 models.Add(model);
             }
