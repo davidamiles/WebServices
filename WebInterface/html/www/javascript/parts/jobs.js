@@ -9,6 +9,10 @@
         $("#grid").on("iggridupdatingrowadding", onInsert);        
     }
 
+    this.ShowFilter = function ShowFilter()
+    {
+
+    }
 
     
     function onInsert(evt, ui)
@@ -73,21 +77,31 @@
             primaryKey: "Id",
             //caption: "<span> <img src=\"//www.infragistics.com/media/441501/horz_logo.png\" alt=\"Infragistics\"></span>",
             width: '100%',
+            renderCheckboxes: true,
             columns: [
-                { headerText: "Id", key: "Id", dataType: "number", width: "15%", hidden: true },
+                { headerText: "Id", key: "Id", dataType: "number", width: "0%", hidden: false },
+                { headerText: "CustomerName", key: "CustomerName", dataType: "string", width: "10%", hidden: false },
+                // { headerText: "Company", key: "Company", dataType: "string", width: "15%", hidden: false },
+                // { headerText: "ContactName", key: "Company", dataType: "string", width: "15%", hidden: false },
+                { headerText: "ShipTo", key: "ShipToAddress", dataType: "string", width: "10%", hidden: false },                
+                { headerText: "JobType", key: "JobType", dataType: "string", width: "7%", hidden: false },
+                { headerText: "JobSubType", key: "JobSubType", dataType: "string", width: "7%", hidden: false },
+                { headerText: "Create Date", key: "CreateDate", dataType: "string", width: "12%", hidden: false },
+                { headerText: "Phone Number", key: "PhoneNum", dataType: "string", width: "10%", hidden: false },
+                { headerText: "Assignedto", key: "Assignedto", dataType: "string", width: "10%", hidden: false },
+                //{ headerText: "ProjectManager", key: "GrossProfit", dataType: "string", width: "25%", hidden: false },
+                { headerText: "Status", key: "Status", dataType: "string", width: "10%", hidden: false },
+                { headerText: "Amount", key: "ContractAmount", dataType: "string", width: "7%", hidden: false },
+                { headerText: "Profit", key: "GrossProfit", dataType: "string", width: "7%", hidden: false },                
+                { headerText: "Active", key: "IsActive", dataType: "bool", width: "5%", hidden: false },
+                { headerText: "Notes", key: "Notes", dataType: "string", width: "15%", hidden: false },               
+
+
+                { headerText: "City", key: "City", dataType: "string", width: "25%", hidden: true },
+                { headerText: "Zipcode", key: "Zipcode", dataType: "string", width: "25%", hidden: true },                
                 { headerText: "ClientId", key: "ClientId", dataType: "number", width: "15%", hidden: true },
                 { headerText: "LeadId", key: "LeadId", dataType: "number", width: "15%", hidden: true },
-                { headerText: "CustomerName", key: "CustomerName", dataType: "string", width: "15%", hidden: false },
-                { headerText: "Create Date", key: "CreateDate", dataType: "string", width: "25%" },
-                { headerText: "Last Activity", key: "LastActivity", dataType: "string", width: "25%" },
-                { headerText: "Status", key: "Status", dataType: "string", width: "25%" },
-                { headerText: "Phone Number", key: "PhoneNum", dataType: "string", width: "25%" },
-                { headerText: "City", key: "City", dataType: "string", width: "25%" },
-                { headerText: "Zipcode", key: "Zipcode", dataType: "string", width: "25%" },
-                { headerText: "Email", key: "Email", dataType: "string", width: "25%" },
-                { headerText: "Assignedto", key: "Assignedto", dataType: "string", width: "25%", hidden: true },
-                { headerText: "ShipTo", key: "ShipToAddress", dataType: "string", width: "25%", hidden: true  },
-                { headerText: "JobType", key: "JobType", dataType: "string", width: "25%", hidden: true  },
+                { headerText: "Email", key: "Email", dataType: "string", width: "25%", hidden: true },
                 { headerText: "IsActive", key: "IsActive", dataType: "string", width: "25%", hidden: true  },
                 { headerText: "InsuranceEmail", key: "InsuranceEmail", dataType: "string", width: "25%", hidden: true  },
                 { headerText: "InsuranceFax", key: "InsuranceFax", dataType: "string", width: "25%", hidden: true  },
@@ -103,7 +117,7 @@
                 { headerText: "PaymentNotes", key: "", dataType: "string", width: "25%", hidden: true },
                 { headerText: "CommissionPercentage", key: "CommisionPercentage", dataType: "string", width: "25%", hidden: true },
                 { headerText: "CoClient", key: "CoClient", dataType: "string", width: "25%", hidden: true },
-                { headerText: "Permit Number", key: "PermitNumber", dataType: "string", width: "25%", hidden: true },
+                { headerText: "Permit Number", key: "PermitNumber", dataType: "string", width: "25%", hidden: true },                
             ],
             autofitLastColumn: false,
             autoGenerateColumns: false,

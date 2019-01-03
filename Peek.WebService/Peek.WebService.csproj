@@ -54,6 +54,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Models\JobFilter.cs" />
     <Compile Include="Models\Result.cs" />
     <Compile Include="Models\SessionModel.cs" />
     <Compile Include="SessionManager.cs" />

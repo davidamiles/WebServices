@@ -45,6 +45,16 @@
             loadHtmlPart("/parts/mainDash.html", null);
         }
 
+        function loadJobs()
+        {
+            loadHtmlPart("/parts/Jobs.html", function ()
+            {
+                _jobs = new Jobs();
+                _jobs.InitGrid();
+            });
+
+        }
+
         function loadHtmlPart(path, loadFunction)
         {
             var rc = new RestClient(_constants.HtmlWebSvcPath);
@@ -67,17 +77,6 @@
                 }
             });
         }
-
-        function loadJobs()
-        {
-            loadHtmlPart("/parts/Jobs.html", function ()
-            {
-                _jobs = new Jobs();
-                _jobs.InitGrid();
-            });
-
-        }
-
 
     </script>
 

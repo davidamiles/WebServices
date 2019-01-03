@@ -24,8 +24,8 @@ function loadMenu()
 
     var menuItem = new MenuItem("", null, null, true);
     menuItem.SubMenuItems.push(new MenuItem("JOBS", null, loadJobs, false));
-    menuItem.SubMenuItems.push(new MenuItem("LEADS", "/html/Leads.html", null, false));
-    menuItem.SubMenuItems.push(new MenuItem("CLIENTS", "/html/Clients.html", null, false));
+    menuItem.SubMenuItems.push(new MenuItem("LEADS", null, null, false));
+    menuItem.SubMenuItems.push(new MenuItem("CLIENTS", null, null, false));
 
     menuItems.push(menuItem);
 
