@@ -128,7 +128,7 @@ namespace Peek.WebService.WebServices
             return result;
         }
 
-        public Result<JobModel> SelectJobsWithFilter(Stream streamData, string page, string take)
+        public Result<JobModel> SelectJobsWithFilter(string client, string status, string assignedTo, string page, string take)
         {
             Result<JobModel> result = null;
 
@@ -137,15 +137,14 @@ namespace Peek.WebService.WebServices
                 int t = int.Parse(take);
                 int s = int.Parse(page) * t;
 
-                byte[] data = BaseWebService.GetBufferFromStream(streamData);
-
-                DataContractJsonSerializer serializer = new DataContractJsonSerializer(typeof(JobFilter));
-                JobFilter jobFilter = (JobFilter)serializer.ReadObject(new MemoryStream(data));
+                if (client.ToLower() == "all") { client = "%%"; }
+                if (status.ToLower() == "all") { status = "%%";  }
+                if (assignedTo.ToLower() == "all") { assignedTo = "%%"; }
 
                 IJobsRepo repo = RepoFactory.GetJobsRepo();
-                IEnumerable<JobModel> models = repo.Select(s, t);
+                IEnumerable<JobModel> models = repo.Select(new JobSearchFilter(client, status, assignedTo), s, t);
                 long total = repo.Count();
-                result = new Result<JobModel>() { Records = models.ToList(), TotalRecordsCount = total };
+                result = new Result<JobModel>() { Records = models, TotalRecordsCount = total };
             }
             catch (DbEntityValidationException ex)
             {
@@ -176,7 +175,7 @@ namespace Peek.WebService.WebServices
 
             return result;
         }
-
+        
         public void UpdateJob(Stream stream)
         {
             try

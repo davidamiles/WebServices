@@ -19,8 +19,8 @@ namespace Peek.WebService.WebServices
         Result<JobModel> SelectJobs(string page, string take);
 
         [OperationContract]
-        [WebInvoke(Method = "POST", UriTemplate = "Filter?page={page}&take={take}")]
-        Result<JobModel> SelectJobsWithFilter(Stream streamData, string page, string take);
+        [WebGet(UriTemplate = "{client}/{status}/{assignedTo}?page={page}&take={take}")]
+        Result<JobModel> SelectJobsWithFilter(string client, string status, string assignedTo, string page, string take);
 
         [OperationContract]
         [WebInvoke(Method = "DELETE", UriTemplate = "{id}")]

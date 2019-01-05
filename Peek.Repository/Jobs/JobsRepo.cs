@@ -106,6 +106,24 @@ namespace Peek.Repository.Jobs
             return (entities.Count() > 0) ? this.GetModelsFromEntities(entities) : null;
         }
 
+        public IEnumerable<JobModel> Select(JobSearchFilter searchFilter, int skip, int take)
+        {
+            string sqlQuery = searchFilter.GenerateSQL();
+
+            IEnumerable<Entities.Job> entities = this.baseContext.Database.SqlQuery<Entities.Job>(sqlQuery);
+
+            List<JobModel> models = this.GetModelsFromEntities(entities);
+
+            return (entities.Count() > 0) ? this.GetModelsFromEntities(entities) : null;
+        }
+
+        public IEnumerable<JobModel> SelectActive(int skip, int take)
+        {
+            IEnumerable<Entities.Job> entities = this.baseContext.Jobs.OrderByDescending(j => j.Id). Where(j => j.Active == true).Skip(skip).Take(take);
+
+            return (entities.Count() > 0) ? this.GetModelsFromEntities(entities) : null;
+        }
+
         public void Update(JobModel item)
         {
             Entities.Job entity = this.baseContext.Jobs.Where(job => job.Id == item.Id).FirstOrDefault();

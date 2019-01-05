@@ -9,7 +9,7 @@ namespace Peek.WebService.Models
 {
     public class Result<T>
     {
-        public List<T> Records { get; set; }
+        public IEnumerable<T> Records { get; set; }
         public long TotalRecordsCount { get; set; }
     }
 }

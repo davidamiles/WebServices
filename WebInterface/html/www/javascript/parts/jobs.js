@@ -11,7 +11,6 @@
 
     this.ShowFilter = function ShowFilter()
     {
-
     }
 
     
@@ -143,15 +142,15 @@
                 //        }
                 //    ]
                 //},
-                //{
-                //    name: "GroupBy",
-                //    columnSettings: [
-                //        {
-                //            columnKey: "CustomerName",
-                //            isGroupBy: true
-                //        }
-                //    ]
-                //},
+                {
+                    name: "GroupBy",
+                    columnSettings: [
+                        {
+                            columnKey: "CustomerName",
+                            isGroupBy: true
+                        }
+                    ]
+                },
                 {
                     name: "Selection"
                 },
