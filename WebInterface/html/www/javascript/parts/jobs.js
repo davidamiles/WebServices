@@ -6,13 +6,36 @@
 
         $("#grid").on("iggridupdatingrowdeleting", onDelete);
         $("#grid").on("iggridupdatingeditrowending", onUpdate);
-        $("#grid").on("iggridupdatingrowadding", onInsert);        
+        $("#grid").on("iggridupdatingrowadding", onInsert);
+
+        var clientsSelect = document.getElementById("clientsSelect");
+
+        _constants.Clients.forEach(function (client)
+        {
+            var option = document.createElement("option");
+            option.value = client.FullName;
+            option.innerHTML = client.FullName;
+
+            clientsSelect.appendChild(option);
+        });
     }
 
-    this.ShowFilter = function ShowFilter()
+    
+
+    this.AssignedToOnChange = function assignedToOnChange(e)
     {
+        
     }
 
+    this.StatusOnChange = function statusOnChange(e)
+    {
+
+    }
+
+    this.ClientsOnChange = function clientsOnChange(e)
+    {
+
+    }
     
     function onInsert(evt, ui)
     {

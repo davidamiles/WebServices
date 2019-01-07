@@ -3,10 +3,9 @@
     var _rootPath = new String(rootPath);
 
 
-    this.SelectClients = function SelectClients(skip, take, callback)
+    this.SelectClients = function SelectClients(callback)
     {
-        var url = _rootPath.concat("/desc/id?skip=" + skip + "&take=" + take);
-        send(url, "GET", callback);
+        send(_rootPath, "GET", callback);
     }
 
     this.UpdateClient = function UpdateClient(client, callback)

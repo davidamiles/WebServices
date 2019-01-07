@@ -87,14 +87,14 @@ namespace Peek.WebService.WebServices
             }
         }
 
-        public IEnumerable<ClientModel> SelectClients(string skip, string take)
+        public IEnumerable<ClientModel> SelectClients()
         {
             IEnumerable<ClientModel> models = null;
 
             try
             {
                 IClientRepo repo = Repository.RepoFactory.GetClientRepo();
-                models = repo.Select(int.Parse(skip), int.Parse(take));
+                models = repo.Select();
             }
             catch (DbEntityValidationException ex)
             {
@@ -125,6 +125,7 @@ namespace Peek.WebService.WebServices
 
             return models;
         }
+        
 
         public void Update(Stream stream)
         {

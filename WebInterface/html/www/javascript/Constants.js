@@ -7,6 +7,7 @@
     this.JobsWebSvcPath = null;
     this.LeadsWebSvcPath = null;
     this.SystemWebSvcPath = null;
+    this.Clients = [];
     
     this.Page = 1;
     this.Take = 10;

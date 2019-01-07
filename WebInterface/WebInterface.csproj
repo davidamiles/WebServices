@@ -101,6 +101,7 @@
     <Content Include="html\www\javascript\ui-menu.js" />
     <Content Include="html\www\parts\Header.html" />
     <Content Include="html\www\parts\Jobs.html" />
+    <Content Include="html\www\parts\mainDash.html" />
     <Content Include="html\www\vendor\animate\animate.css" />
     <Content Include="html\www\vendor\autosize\autosize.js" />
     <Content Include="html\www\vendor\bootstrap-colorpicker\css\bootstrap-colorpicker.css" />

@@ -142,7 +142,7 @@ namespace Peek.WebService.WebServices
                 if (assignedTo.ToLower() == "all") { assignedTo = "%%"; }
 
                 IJobsRepo repo = RepoFactory.GetJobsRepo();
-                IEnumerable<JobModel> models = repo.Select(new JobSearchFilter(client, status, assignedTo), s, t);
+                IEnumerable<JobModel> models = repo.Select(new JobSearchFilter(client, status, assignedTo), s, t);                
                 long total = repo.Count();
                 result = new Result<JobModel>() { Records = models, TotalRecordsCount = total };
             }

@@ -43,6 +43,8 @@
             });
 
             loadHtmlPart("/parts/mainDash.html", null);
+
+            loadClients();
         }
 
         function loadJobs()
@@ -78,6 +80,14 @@
             });
         }
 
+        function loadClients()
+        {
+            var rc = new RestClient(_constants.ClientsWebSvcPath);
+            rc.SelectClients(function (restCallbackObj)
+            {
+                _constants.Clients = restCallbackObj.ResponseJSON;
+            });
+        }
     </script>
 
     <header id="headerSection" style="width: auto; height:120px;"></header>
