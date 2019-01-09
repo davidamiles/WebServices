@@ -95,6 +95,12 @@ namespace Peek.WebService.WebServices
 
                 IJobsRepo repo = RepoFactory.GetJobsRepo();
                 IEnumerable<JobModel> models = repo.Select(s, t);
+
+                if (models != null)
+                {
+                    models = this.JoinGroups(models.GroupBy(m => m.ClientId).Select(grp => grp.ToList()).ToList());
+                }               
+                
                 long total = repo.Count();
                 result =  new Result<JobModel>() { Records = models.ToList(), TotalRecordsCount = total };
             }           
@@ -142,7 +148,13 @@ namespace Peek.WebService.WebServices
                 if (assignedTo.ToLower() == "all") { assignedTo = "%%"; }
 
                 IJobsRepo repo = RepoFactory.GetJobsRepo();
-                IEnumerable<JobModel> models = repo.Select(new JobSearchFilter(client, status, assignedTo), s, t);                
+                IEnumerable<JobModel> models = repo.Select(new JobSearchFilter(client, status, assignedTo), s, t);
+
+                if (models != null)
+                {
+                    models = this.JoinGroups(models.GroupBy(m => m.ClientId).Select(grp => grp.ToList()).ToList());
+                }
+
                 long total = repo.Count();
                 result = new Result<JobModel>() { Records = models, TotalRecordsCount = total };
             }
@@ -206,5 +218,29 @@ namespace Peek.WebService.WebServices
                 base.LogMessage(ex.Message, Peek.Models.LogSeverity.Error, ex.StackTrace);
             }
         }
+
+
+
+
+
+
+        #region private
+
+        private List<JobModel> JoinGroups(List<List<JobModel>> groups)
+        {
+            List<JobModel> jobs = new List<JobModel>();
+
+            foreach (List<JobModel> group in groups)
+            {
+                foreach (JobModel jobModel in group)
+                {
+                    jobs.Add(jobModel);
+                }
+            }
+
+            return jobs;
+        }
+
+        #endregion
     }
 }
