@@ -3,7 +3,7 @@
 <head>
     <title></title>
 </head>
-<body>
+<body onload="onLoad()">
 
     <!-- Ignite UI Required Combined CSS Files -->
     <link href="http://cdn-na.infragistics.com/igniteui/2018.1/latest/css/themes/infragistics/infragistics.theme.css" rel="stylesheet" />
@@ -17,51 +17,86 @@
     <script src="http://cdn-na.infragistics.com/igniteui/2018.1/latest/js/infragistics.core.js"></script>
     <script src="http://cdn-na.infragistics.com/igniteui/2018.1/latest/js/infragistics.lob.js"></script>
 
+    <link href="/html/css/menu.css" rel="stylesheet" />
+
+    <script src="javascript/ui-menu.js" type="text/javascript"></script>
     <script src="javascript/Constants.js" type="text/javascript"></script>
-    <script src="javascript/ui-datagrid-1.2.js" type="text/javascript"></script>
+    <script src="javascript/Header.js" type="text/javascript"></script>
     <script src="javascript/RestClient.js" type="text/javascript"></script>
-
-    <link href="css/datagrid.css" rel="stylesheet" />
-
-    Peek View Roofing
-    <br />
-
-    <input value="part 1" type="button" onclick="loadPart1()" />
-
-    <br />
-
-    <input value="part 2" type="button" onclick="loadPart2()" />
-
-    <div id="divContainer">
-
-    </div>
+    <script src="javascript/parts/Jobs.js" type="text/javascript"></script>
 
     <script type="text/javascript">
-        var _divContainer = document.getElementById("divContainer");
 
-        var constants = new Constants();
-        constants.Init();
+        var _constants = new Constants();
+        var _mainSection = document.createElement("div");
+        var _jobs = new Jobs();
 
-        function loadPart1()
+        function onLoad()
         {
-            var restClient = new RestClient(constants.BaseWebSvcPath);
-            restClient.GetHtml("/parts/part1.html", function (restCallbackObj)
+            _constants.Init();
+            _mainSection = document.getElementById("mainSection");
+
+            loadHeader(_constants.HtmlWebSvcPath, function ()
             {
-                _divContainer.innerHTML = restCallbackObj.ResponseText;
+                getUsername(_constants.SystemWebSvcPath);
+                loadMenu(document.getElementById("menuContainer"));
+            });
+
+            loadHtmlPart("/parts/mainDash.html", null);
+
+            loadClients();
+        }
+
+        function loadJobs()
+        {
+            loadHtmlPart("/parts/Jobs.html", function ()
+            {
+                _jobs = new Jobs();
+                _jobs.InitGrid();
+            });
+
+        }
+
+        function loadHtmlPart(path, loadFunction)
+        {
+            var rc = new RestClient(_constants.HtmlWebSvcPath);
+            rc.GetHtml(path, function (restCallbackObj)
+            {
+                if (restCallbackObj.StatusCode == 200)
+                {
+                    _mainSection.innerHTML = restCallbackObj.ResponseText;
+
+                    if (loadFunction != null)
+                    {
+                        loadFunction();
+                    }
+                }
+                else
+                {
+                    //
+                    // show the user some error here....
+                    //
+                }
             });
         }
 
-        function loadPart2()
+        function loadClients()
         {
-            var restClient = new RestClient(constants.BaseWebSvcPath);
-            restClient.GetHtml("/parts/part2.html", function (restCallbackObj)
+            var rc = new RestClient(_constants.ClientsWebSvcPath);
+            rc.SelectClients(function (restCallbackObj)
             {
-                _divContainer.innerHTML = restCallbackObj.ResponseText;
+                _constants.Clients = restCallbackObj.ResponseJSON;
             });
         }
-
-
     </script>
+
+    <header id="headerSection" style="width: auto; height:120px;"></header>
+
+    <section style="margin-top: 10px; width: auto; height: auto; background-color: gainsboro">
+        <div id="mainSection">
+
+        </div>
+    </section>
 
 </body>
 </html>

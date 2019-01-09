@@ -84,12 +84,38 @@
     <Content Include="html\login\default.html" />
     <Content Include="html\login\javascript\RestClient.js" />
     <Content Include="html\login\logout.html" />
-    <Content Include="html\www\Clients.html" />
     <Content Include="html\www\css\datagrid.css" />
     <Content Include="html\www\css\loading.css" />
     <Content Include="html\www\css\menu.css" />
+    <Content Include="html\www\css\text.css" />
+    <Content Include="html\www\css\theme.css" />
     <Content Include="html\www\default.html" />
+    <Content Include="html\www\images\!logged-user.jpg" />
+    <Content Include="html\www\images\menu-icon.png" />
+    <Content Include="html\www\images\patterns\az_subtle.png" />
+    <Content Include="html\www\images\patterns\blizzard.png" />
+    <Content Include="html\www\images\patterns\bright_squares.png" />
+    <Content Include="html\www\images\patterns\denim.png" />
+    <Content Include="html\www\images\patterns\fancy_deboss.png" />
+    <Content Include="html\www\images\patterns\gray_jean.png" />
+    <Content Include="html\www\images\patterns\honey_im_subtle.png" />
+    <Content Include="html\www\images\patterns\linedpaper.png" />
+    <Content Include="html\www\images\patterns\linen.png" />
+    <Content Include="html\www\images\patterns\noisy_net.png" />
+    <Content Include="html\www\images\patterns\pw_maze_white.png" />
+    <Content Include="html\www\images\patterns\random_grey_variations.png" />
+    <Content Include="html\www\images\patterns\skin_side_up.png" />
+    <Content Include="html\www\images\patterns\stitched_wool.png" />
+    <Content Include="html\www\images\patterns\straws.png" />
+    <Content Include="html\www\images\patterns\subtle_grunge.png" />
+    <Content Include="html\www\images\patterns\textured_stripes.png" />
+    <Content Include="html\www\images\patterns\wild_oliva.png" />
+    <Content Include="html\www\images\patterns\worn_dots.png" />
+    <Content Include="html\www\images\pvrlogo.png" />
     <Content Include="html\www\javascript\Constants.js" />
+    <Content Include="html\www\javascript\Header.js" />
+    <Content Include="html\www\javascript\Models.js" />
+    <Content Include="html\www\javascript\parts\Jobs.js" />
     <Content Include="html\www\javascript\RestClient.js" />
     <Content Include="html\www\javascript\ui-datagrid-1.2.js" />
     <Content Include="html\www\JobsSample.html" />
@@ -102,7 +128,6 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="html\login\vendor\bootstrap\css\bootstrap.css.map" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -112,7 +137,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="html\login\images\" />
-    <Folder Include="html\www\images\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

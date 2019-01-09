@@ -1,0 +1,77 @@
+﻿
+.HeaderText, .WelcomeText, .XXLargeText, .ErrorText {
+    font-family: Verdana, sans-serif, 'Times New Roman', Times, serif;
+}
+
+.ErrorText {
+    color: red;
+    font-size: 15px;
+    font-weight: bold;
+}
+
+.HeaderText {
+    color: black;
+    font-size: 15px;
+}
+
+
+.SmallGreenBoldText {
+    font-family: sans-serif; /*Orbitron*/
+    font-size: 13px;
+    color: #0b8520;
+    font-weight: bolder
+}
+
+.HeaderText:hover {
+    color: white;
+}
+
+.WelcomeText {
+    color: black;
+    font-size: 15px;
+}
+
+.CollectionTitleText {
+    font-weight: bold;
+    text-decoration: underline;
+}
+
+.TimestampText {
+    font-size: 12px;
+    font-weight: 500;
+    text-align: center;
+    margin-bottom: 20px
+}
+
+.XXSmallText {
+    font-size: 10px;
+}
+
+.XSmallText {
+    font-size: 12px;
+}
+
+.SmallText {
+    font-size: 13px;
+}
+
+.SmallBoldText {
+    font-size: 13px;
+    font-weight: bold;
+}
+
+.MediumText {
+    font-size: 15px
+}
+
+.LargeText {
+    font-size: 17px
+}
+
+.XLargeText {
+    font-size: 20px
+}
+
+.XXLargeText {
+    font-size: 23px
+}

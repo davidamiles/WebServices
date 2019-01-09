@@ -100,6 +100,11 @@ namespace Peek.Repository.Leads
             return models;
         }
 
+        public long Count()
+        {
+            throw new NotImplementedException();
+        }
+
         #endregion
     }
 }

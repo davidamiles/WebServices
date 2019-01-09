@@ -22,6 +22,7 @@ namespace Sandbox
         private WebServiceHost baseClientsWebServiceHost = null;        
         private WebServiceHost baseLeadsWebServiceHost = null;
         private WebServiceHost baseJobsWebServiceHost = null;
+        private WebServiceHost baseSystemWebServiceHost = null;
 
         private string basePath = null;        
 
@@ -56,6 +57,9 @@ namespace Sandbox
 
             this.baseJobsWebServiceHost = new WebServiceHost(typeof(JobsWebSvc));
             this.baseJobsWebServiceHost.Open();
+
+            this.baseSystemWebServiceHost = new WebServiceHost(typeof(SystemWebSvc));
+            this.baseSystemWebServiceHost.Open();
             
             this.btnStart.Enabled = false;
             this.btnStop.Enabled = true;            
@@ -70,6 +74,7 @@ namespace Sandbox
             this.baseClientsWebServiceHost.Close();
             this.baseLeadsWebServiceHost.Close();
             this.baseJobsWebServiceHost.Close();
+            this.baseSystemWebServiceHost.Close();
 
             this.btnStop.Enabled = false;
             this.btnStart.Enabled = true;

@@ -58,5 +58,10 @@ namespace Peek.Repository
         {
             throw new NotImplementedException();
         }
+
+        public long Count()
+        {
+            throw new NotImplementedException();
+        }
     }
 }

@@ -68,7 +68,7 @@ namespace Peek.Models.Jobs
 
             set
             {
-                CreateDate = DateTime.Parse(value);
+                CreateDate = DateTime.Parse(value).ToUniversalTime();
             }
         }
 

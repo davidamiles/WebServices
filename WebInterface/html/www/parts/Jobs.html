@@ -1,0 +1,36 @@
+﻿<div id="filterDiv" style="display: inline-block; margin-top: 10px; margin-bottom: 10px">
+    <div style="display: inline-block">
+        <fieldset style="width: 300px; margin-left: 50px">
+            <legend class="SmallBoldText">Clients</legend>
+            <select id="clientsSelect" style="height: 30px" onchange="_jobs.ClientsOnChange(this)">
+                <option value="All">All</option>
+            </select>
+        </fieldset>
+    </div>
+
+    <div style="display: inline-block; margin-left: 50px">
+        <fieldset style="width: 50px;">
+            <legend class="SmallBoldText">Status</legend>
+            <select id="statusSelect" style="height: 30px" onchange="_jobs.StatusOnChange(this)">
+                <option value="All">All</option>
+                <option value="Pre-Production">Pre-Production</option>
+                <option value="Invoice">Invoice</option>
+                <option value="Collections">Collections</option>
+                <option value="Complete">Complete</option>
+                <option value="Warranty">Warranty</option>
+                <option value="Hold">Hold</option>
+            </select>
+        </fieldset>
+    </div>
+
+    <div style="display: inline-block;  margin-left: 50px">
+        <fieldset style="width: 150px">
+            <legend class="SmallBoldText">Assigned To</legend>
+            <select id="assignedToSelect" style="height: 30px" onchange="_jobs.AssignedToOnChange(this)">
+                <option value="All">All</option>
+            </select>
+        </fieldset>
+    </div>
+</div>
+
+<table id="grid" style="z-index: 100"></table>

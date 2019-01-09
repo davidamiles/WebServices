@@ -9,5 +9,7 @@ namespace Peek.Repository.Jobs
 {
     public interface IJobsRepo : IRepo<JobModel>
     {
+        IEnumerable<JobModel> Select(JobSearchFilter searchFilter, int skip, int take);        
     }
+
 }
