@@ -73,8 +73,25 @@ namespace Peek.Repository.Clients
                     CreatedDate = (DateTime)entity.CreatedDate,
                     AddressLine1 = entity.AddressLine1,
                     AddressLine2 = entity.AddressLine2,
-                    AdjusterName = entity.AdjusterName
+                    AdjusterName = entity.AdjusterName,
+                    CoClient = entity.CoClient
                 });
+
+                //
+                // this is because of a very poorly designed database
+                // if we get to redesign this database we won't need this
+                // snippet of code
+                //
+                clients.ForEach(c =>
+                {
+                    if (String.IsNullOrEmpty(c.CoClient))
+                    {
+                        c.CoClient = c.FullName;
+                    }
+                });
+
+                
+
             }
 
             return clients;

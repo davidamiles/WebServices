@@ -94,7 +94,7 @@ namespace Peek.WebService.WebServices
             try
             {
                 IClientRepo repo = Repository.RepoFactory.GetClientRepo();
-                models = repo.Select();
+                models = repo.Select().OrderBy(c => c.CoClient);
             }
             catch (DbEntityValidationException ex)
             {

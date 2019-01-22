@@ -19,8 +19,8 @@
         _constants.Clients.forEach(function (client)
         {
             var option = document.createElement("option");
-            option.value = client.FullName;
-            option.innerHTML = client.FullName;
+            option.value = client.CoClient;
+            option.innerHTML = client.CoClient;
 
             clientsSelect.appendChild(option);
         });
